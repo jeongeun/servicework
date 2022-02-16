@@ -1,54 +1,42 @@
 ************RecoLocalMuon****************
 ***********************************************************************
 #TargetCC: /RecoLocalMuon/DTSegment/src/DTCombinatorialPatternReco4D.cc     #Function: DTCombinatorialPatternReco4D
-###prameterCC : computeT0Seg
-
-# Last Check : fillDescription: 0   cfipython: 0   param: 0
-***********************************************************************
+40:  computeT0corr = pset.existsAs<bool>("computeT0Seg") ? pset.getParameter<bool>("computeT0Seg") : true;
+###pramCC: computeT0Seg  lineCC:  lineFill: 0
+### FinalCheck ccfillDesc 0 0  cfipython 0 0
 ***********************************************************************
 #TargetCC: /RecoLocalMuon/DTSegment/src/DTMeantimerPatternReco4D.cc     #Function: DTMeantimerPatternReco4D
-###prameterCC : computeT0Seg
-
-# Last Check : fillDescription: 0   cfipython: 0   param: 0
-***********************************************************************
+41:  computeT0corr = pset.existsAs<bool>("computeT0Seg") ? pset.getParameter<bool>("computeT0Seg") : true;
+###pramCC: computeT0Seg  lineCC:  lineFill: 0
+### FinalCheck ccfillDesc 0 0  cfipython 0 0
 ***********************************************************************
 #TargetCC: /RecoLocalMuon/DTSegment/src/DTSegmentUpdator.cc     #Function: DTSegmentUpdator
-###prameterCC : intime_cut
-56:  intime_cut = 20.;
-58:    intime_cut = config.getParameter<double>("intime_cut");
-130:  // If both phi and zed projections are present and the phi segment is in time (segment t0<intime_cut) the 3-par fit is blocked and
-131:  // segments are fit with the 2-par fit. Setting intime_cut to -1 results in the 3-par fit being used always.
-134:      if (fabs(seg->phiSegment()->t0()) < intime_cut) {
-391:    if (fabs(t0_corr) < intime_cut && block3par) {
-# Last Check : fillDescription: 0   cfipython: 0   param: 0
-***********************************************************************
+57:  if (config.exists("intime_cut"))
+###pramCC: intime_cut  lineCC: 56 lineFill: 0
+### FinalCheck ccfillDesc 0 0  cfipython 0 0
 ***********************************************************************
 #TargetCC: /RecoLocalMuon/GEMRecHit/plugins/GEMRecHitProducer.cc     #Function: GEMRecHitProducer
-###prameterCC : maskFile
+35:    if (config.existsAs<edm::FileInPath>("maskFile")) {
+51:    if (config.existsAs<edm::FileInPath>("deadFile")) {
 ###FillDescription : 77:void GEMRecHitProducer::fillDescriptions(edm::ConfigurationDescriptions& descriptions) {
-37:      std::ifstream inputFile(config.getParameter<edm::FileInPath>("maskFile").fullPath());
-84:  desc.addOptional<edm::FileInPath>("maskFile");
-###prameterCC : deadFile
-###FillDescription : 77:void GEMRecHitProducer::fillDescriptions(edm::ConfigurationDescriptions& descriptions) {
-53:      std::ifstream inputFile(config.getParameter<edm::FileInPath>("deadFile").fullPath());
-85:  desc.addOptional<edm::FileInPath>("deadFile");
 ###Cfipython : RecoLocalMuon/GEMRecHit/gemRecHitsDef_cfi.py gemRecHitsDef cms.EDProducer GEMRecHitProducer
-# Last Check : fillDescription: 1   cfipython: 1   param: 0
-===>> !!!!! Update /RecoLocalMuon/GEMRecHit/plugins/GEMRecHitProducer.cc !!!  1 1 0  RecoLocalMuon/GEMRecHit/gemRecHitsDef_cfi.py
-##########################################3#########
-***********************************************************************
+###pramCC: maskFile  lineCC: 37 lineFill: 77
+--- In cfipy : 8:  maskFile = cms.optional.FileInPath,
+###pramCC: deadFile  lineCC: 53 lineFill: 77
+--- In cfipy : 9:  deadFile = cms.optional.FileInPath,
+### FinalCheck ccfillDesc 1 0  cfipython 1 1
+==> Please Check and Update /RecoLocalMuon/GEMRecHit/plugins/GEMRecHitProducer.cc !!!  1 0 1 1 ../cfipython/slc7_amd64_gcc900/RecoLocalMuon/GEMRecHit/gemRecHitsDef_cfi.py
+###################################################################3
 ***********************************************************************
 #TargetCC: /RecoLocalMuon/GEMRecHit/plugins/GEMRecHitProducer.cc     #Function: GEMRecHitProducer
-###prameterCC : maskFile
+35:    if (config.existsAs<edm::FileInPath>("maskFile")) {
+51:    if (config.existsAs<edm::FileInPath>("deadFile")) {
 ###FillDescription : 77:void GEMRecHitProducer::fillDescriptions(edm::ConfigurationDescriptions& descriptions) {
-37:      std::ifstream inputFile(config.getParameter<edm::FileInPath>("maskFile").fullPath());
-84:  desc.addOptional<edm::FileInPath>("maskFile");
-###prameterCC : deadFile
-###FillDescription : 77:void GEMRecHitProducer::fillDescriptions(edm::ConfigurationDescriptions& descriptions) {
-53:      std::ifstream inputFile(config.getParameter<edm::FileInPath>("deadFile").fullPath());
-85:  desc.addOptional<edm::FileInPath>("deadFile");
 ###Cfipython : RecoLocalMuon/GEMRecHit/gemRecHitsDef_cfi.py gemRecHitsDef cms.EDProducer GEMRecHitProducer
-# Last Check : fillDescription: 1   cfipython: 1   param: 0
-===>> !!!!! Update /RecoLocalMuon/GEMRecHit/plugins/GEMRecHitProducer.cc !!!  1 1 0  RecoLocalMuon/GEMRecHit/gemRecHitsDef_cfi.py
-##########################################3#########
-***********************************************************************
+###pramCC: maskFile  lineCC: 37 lineFill: 77
+--- In cfipy : 8:  maskFile = cms.optional.FileInPath,
+###pramCC: deadFile  lineCC: 53 lineFill: 77
+--- In cfipy : 9:  deadFile = cms.optional.FileInPath,
+### FinalCheck ccfillDesc 1 0  cfipython 1 1
+==> Please Check and Update /RecoLocalMuon/GEMRecHit/plugins/GEMRecHitProducer.cc !!!  1 0 1 1 ../cfipython/slc7_amd64_gcc900/RecoLocalMuon/GEMRecHit/gemRecHitsDef_cfi.py
+###################################################################3

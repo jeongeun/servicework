@@ -1,85 +1,53 @@
 ************RecoLocalCalo****************
 ***********************************************************************
 #TargetCC: /RecoLocalCalo/HcalRecProducers/src/HcalHitReconstructor.cc     #Function: HcalHitReconstructor
-###prameterCC : setNegativeFlags
-39:      setNegativeFlags_(false),
-68:    setNegativeFlags_ = conf.getParameter<bool>("setNegativeFlags");
-###prameterCC : dataOOTCorrectionName
-46:      dataOOTCorrectionName_(""),
-154:    dataOOTCorrectionName_ = conf.getParameter<std::string>("dataOOTCorrectionName");
-161:  if (dataOOTCorrectionName_.empty() && mcOOTCorrectionName_.empty())
-###prameterCC : dataOOTCorrectionCategory
-47:      dataOOTCorrectionCategory_("Data"),
-156:    dataOOTCorrectionCategory_ = conf.getParameter<std::string>("dataOOTCorrectionCategory");
-###prameterCC : mcOOTCorrectionName
-48:      mcOOTCorrectionName_(""),
-158:    mcOOTCorrectionName_ = conf.getParameter<std::string>("mcOOTCorrectionName");
-161:  if (dataOOTCorrectionName_.empty() && mcOOTCorrectionName_.empty())
-###prameterCC : mcOOTCorrectionCategory
-49:      mcOOTCorrectionCategory_("MC"),
-160:    mcOOTCorrectionCategory_ = conf.getParameter<std::string>("mcOOTCorrectionCategory");
-# Last Check : fillDescription: 0   cfipython: 0   param: 0
-***********************************************************************
+67:  if (conf.existsAs<bool>("setNegativeFlags"))
+153:  if (conf.existsAs<std::string>("dataOOTCorrectionName"))
+155:  if (conf.existsAs<std::string>("dataOOTCorrectionCategory"))
+157:  if (conf.existsAs<std::string>("mcOOTCorrectionName"))
+159:  if (conf.existsAs<std::string>("mcOOTCorrectionCategory"))
+###pramCC: setNegativeFlags  lineCC: 39 lineFill: 0
+###pramCC: dataOOTCorrectionName  lineCC: 46 lineFill: 0
+###pramCC: dataOOTCorrectionCategory  lineCC: 47 lineFill: 0
+###pramCC: mcOOTCorrectionName  lineCC: 48 lineFill: 0
+###pramCC: mcOOTCorrectionCategory  lineCC: 49 lineFill: 0
+### FinalCheck ccfillDesc 0 0  cfipython 0 0
 ***********************************************************************
 #TargetCC: /RecoLocalCalo/HcalRecProducers/src/HcalHitReconstructor.cc     #Function: HcalHitReconstructor
-###prameterCC : setNegativeFlags
-39:      setNegativeFlags_(false),
-68:    setNegativeFlags_ = conf.getParameter<bool>("setNegativeFlags");
-###prameterCC : dataOOTCorrectionName
-46:      dataOOTCorrectionName_(""),
-154:    dataOOTCorrectionName_ = conf.getParameter<std::string>("dataOOTCorrectionName");
-161:  if (dataOOTCorrectionName_.empty() && mcOOTCorrectionName_.empty())
-###prameterCC : dataOOTCorrectionCategory
-47:      dataOOTCorrectionCategory_("Data"),
-156:    dataOOTCorrectionCategory_ = conf.getParameter<std::string>("dataOOTCorrectionCategory");
-###prameterCC : mcOOTCorrectionName
-48:      mcOOTCorrectionName_(""),
-158:    mcOOTCorrectionName_ = conf.getParameter<std::string>("mcOOTCorrectionName");
-161:  if (dataOOTCorrectionName_.empty() && mcOOTCorrectionName_.empty())
-###prameterCC : mcOOTCorrectionCategory
-49:      mcOOTCorrectionCategory_("MC"),
-160:    mcOOTCorrectionCategory_ = conf.getParameter<std::string>("mcOOTCorrectionCategory");
-# Last Check : fillDescription: 0   cfipython: 0   param: 0
-***********************************************************************
+67:  if (conf.existsAs<bool>("setNegativeFlags"))
+153:  if (conf.existsAs<std::string>("dataOOTCorrectionName"))
+155:  if (conf.existsAs<std::string>("dataOOTCorrectionCategory"))
+157:  if (conf.existsAs<std::string>("mcOOTCorrectionName"))
+159:  if (conf.existsAs<std::string>("mcOOTCorrectionCategory"))
+###pramCC: setNegativeFlags  lineCC: 39 lineFill: 0
+###pramCC: dataOOTCorrectionName  lineCC: 46 lineFill: 0
+###pramCC: dataOOTCorrectionCategory  lineCC: 47 lineFill: 0
+###pramCC: mcOOTCorrectionName  lineCC: 48 lineFill: 0
+###pramCC: mcOOTCorrectionCategory  lineCC: 49 lineFill: 0
+### FinalCheck ccfillDesc 0 0  cfipython 0 0
 ***********************************************************************
 #TargetCC: /RecoLocalCalo/HcalRecProducers/src/HcalHitReconstructor.cc     #Function: HcalHitReconstructor
-###prameterCC : setNegativeFlags
-39:      setNegativeFlags_(false),
-68:    setNegativeFlags_ = conf.getParameter<bool>("setNegativeFlags");
-###prameterCC : dataOOTCorrectionName
-46:      dataOOTCorrectionName_(""),
-154:    dataOOTCorrectionName_ = conf.getParameter<std::string>("dataOOTCorrectionName");
-161:  if (dataOOTCorrectionName_.empty() && mcOOTCorrectionName_.empty())
-###prameterCC : dataOOTCorrectionCategory
-47:      dataOOTCorrectionCategory_("Data"),
-156:    dataOOTCorrectionCategory_ = conf.getParameter<std::string>("dataOOTCorrectionCategory");
-###prameterCC : mcOOTCorrectionName
-48:      mcOOTCorrectionName_(""),
-158:    mcOOTCorrectionName_ = conf.getParameter<std::string>("mcOOTCorrectionName");
-161:  if (dataOOTCorrectionName_.empty() && mcOOTCorrectionName_.empty())
-###prameterCC : mcOOTCorrectionCategory
-49:      mcOOTCorrectionCategory_("MC"),
-160:    mcOOTCorrectionCategory_ = conf.getParameter<std::string>("mcOOTCorrectionCategory");
-# Last Check : fillDescription: 0   cfipython: 0   param: 0
-***********************************************************************
+67:  if (conf.existsAs<bool>("setNegativeFlags"))
+153:  if (conf.existsAs<std::string>("dataOOTCorrectionName"))
+155:  if (conf.existsAs<std::string>("dataOOTCorrectionCategory"))
+157:  if (conf.existsAs<std::string>("mcOOTCorrectionName"))
+159:  if (conf.existsAs<std::string>("mcOOTCorrectionCategory"))
+###pramCC: setNegativeFlags  lineCC: 39 lineFill: 0
+###pramCC: dataOOTCorrectionName  lineCC: 46 lineFill: 0
+###pramCC: dataOOTCorrectionCategory  lineCC: 47 lineFill: 0
+###pramCC: mcOOTCorrectionName  lineCC: 48 lineFill: 0
+###pramCC: mcOOTCorrectionCategory  lineCC: 49 lineFill: 0
+### FinalCheck ccfillDesc 0 0  cfipython 0 0
 ***********************************************************************
 #TargetCC: /RecoLocalCalo/HcalRecProducers/src/HcalHitReconstructor.cc     #Function: HcalHitReconstructor
-###prameterCC : setNegativeFlags
-39:      setNegativeFlags_(false),
-68:    setNegativeFlags_ = conf.getParameter<bool>("setNegativeFlags");
-###prameterCC : dataOOTCorrectionName
-46:      dataOOTCorrectionName_(""),
-154:    dataOOTCorrectionName_ = conf.getParameter<std::string>("dataOOTCorrectionName");
-161:  if (dataOOTCorrectionName_.empty() && mcOOTCorrectionName_.empty())
-###prameterCC : dataOOTCorrectionCategory
-47:      dataOOTCorrectionCategory_("Data"),
-156:    dataOOTCorrectionCategory_ = conf.getParameter<std::string>("dataOOTCorrectionCategory");
-###prameterCC : mcOOTCorrectionName
-48:      mcOOTCorrectionName_(""),
-158:    mcOOTCorrectionName_ = conf.getParameter<std::string>("mcOOTCorrectionName");
-161:  if (dataOOTCorrectionName_.empty() && mcOOTCorrectionName_.empty())
-###prameterCC : mcOOTCorrectionCategory
-49:      mcOOTCorrectionCategory_("MC"),
-160:    mcOOTCorrectionCategory_ = conf.getParameter<std::string>("mcOOTCorrectionCategory");
-# Last Check : fillDescription: 0   cfipython: 0   param: 0
-***********************************************************************
+67:  if (conf.existsAs<bool>("setNegativeFlags"))
+153:  if (conf.existsAs<std::string>("dataOOTCorrectionName"))
+155:  if (conf.existsAs<std::string>("dataOOTCorrectionCategory"))
+157:  if (conf.existsAs<std::string>("mcOOTCorrectionName"))
+159:  if (conf.existsAs<std::string>("mcOOTCorrectionCategory"))
+###pramCC: setNegativeFlags  lineCC: 39 lineFill: 0
+###pramCC: dataOOTCorrectionName  lineCC: 46 lineFill: 0
+###pramCC: dataOOTCorrectionCategory  lineCC: 47 lineFill: 0
+###pramCC: mcOOTCorrectionName  lineCC: 48 lineFill: 0
+###pramCC: mcOOTCorrectionCategory  lineCC: 49 lineFill: 0
+### FinalCheck ccfillDesc 0 0  cfipython 0 0
