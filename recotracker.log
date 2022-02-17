@@ -1,6 +1,6 @@
 ************RecoTracker****************
 ***********************************************************************
-#TargetCC: /RecoTracker/FinalTrackSelectors/plugins/AnalyticalTrackSelector.cc     #Function: AnalyticalTrackSelector
+#targetCC: /RecoTracker/FinalTrackSelectors/plugins/AnalyticalTrackSelector.cc     #function: AnalyticalTrackSelector
 106:  if (cfg.exists("useAnyMVA"))
 150:      cfg.existsAs<int32_t>("max_minMissHitOutOrIn") ? cfg.getParameter<int32_t>("max_minMissHitOutOrIn") : 99);
 152:      cfg.existsAs<double>("max_lostHitFraction") ? cfg.getParameter<double>("max_lostHitFraction") : 1.0);
@@ -11,65 +11,58 @@
 201:      mvaType_.push_back(cfg.exists("mvaType") ? cfg.getParameter<std::string>("mvaType") : "Detached");
 202:      forestLabel_.push_back(cfg.exists("GBRForestLabel") ? cfg.getParameter<std::string>("GBRForestLabel")
 204:      useMVAonly_.push_back(cfg.exists("useMVAonly") ? cfg.getParameter<bool>("useMVAonly") : false);
-###pramCC: useAnyMVA  lineCC: 104 lineFill: 0
-###pramCC: max_minMissHitOutOrIn  lineCC: 93 lineFill: 0
-###pramCC: max_lostHitFraction  lineCC: 94 lineFill: 0
-###pramCC: keepAllTracks  lineCC: 176 lineFill: 0
-###pramCC: qualityBit  lineCC: 161 lineFill: 0
-###pramCC: useMVA  lineCC: 99 lineFill: 0
-###pramCC: minMVA  lineCC: 199 lineFill: 0
-###pramCC: mvaType  lineCC: 98 lineFill: 0
-###pramCC: GBRForestLabel  lineCC:  lineFill: 0
-###pramCC: useMVAonly  lineCC: 207 lineFill: 0
-### FinalCheck ccfillDesc 0 0  cfipython 0 0
+###pramCC: useAnyMVA  inCC: 104  inFillDesc: 0 
+104:  useAnyMVA_ = false;
+107:    useAnyMVA_ = cfg.getParameter<bool>("useAnyMVA");
+191:  if (useAnyMVA_) {
+305:    if (useAnyMVA_)
+--- not found in filldesc cc
+###pramCC: max_minMissHitOutOrIn  inCC: 93  inFillDesc: 0 
+93:  max_minMissHitOutOrIn_.reserve(1);
+149:  max_minMissHitOutOrIn_.push_back(
+--- not found in filldesc cc
+###pramCC: max_lostHitFraction  inCC: 94  inFillDesc: 0 
+94:  max_lostHitFraction_.reserve(1);
+151:  max_lostHitFraction_.push_back(
+--- not found in filldesc cc
+###pramCC: keepAllTracks  inCC: 176  inFillDesc: 0 
+176:  if (keepAllTracks_[0] && !setQualityBit_[0])
+178:        << "If you set 'keepAllTracks' to true, you must specify which qualityBit to set.\n";
+313:      if (!keepAllTracks_[0])
+--- not found in filldesc cc
+###pramCC: qualityBit  inCC: 161  inFillDesc: 0 
+161:  std::string qualityStr = cfg.getParameter<std::string>("qualityBit");
+169:    std::string qualityStr = cfg.getParameter<std::string>("qualityBit");
+172:      qualityToSet_[0] = TrackBase::qualityByName(cfg.getParameter<std::string>("qualityBit"));
+178:        << "If you set 'keepAllTracks' to true, you must specify which qualityBit to set.\n";
+181:        << "You can't set the quality bit " << cfg.getParameter<std::string>("qualityBit")
+--- not found in filldesc cc
+###pramCC: useMVA  inCC: 99  inFillDesc: 0 
+99:  useMVA_.reserve(1);
+194:      thisMVA = cfg.getParameter<bool>("useMVA");
+195:    useMVA_.push_back(thisMVA);
+207:      useMVAonly_.push_back(false);
+212:    useMVA_.push_back(false);
+213:    useMVAonly_.push_back(false);
+--- not found in filldesc cc
+###pramCC: minMVA  inCC: 199  inFillDesc: 0 
+199:        minVal = cfg.getParameter<double>("minMVA");
+--- not found in filldesc cc
+###pramCC: mvaType  inCC: 98  inFillDesc: 0 
+98:  mvaType_.reserve(1);
+208:      mvaType_.push_back("Detached");
+215:    mvaType_.push_back("Detached");
+--- not found in filldesc cc
+###pramCC: GBRForestLabel  inCC:   inFillDesc: 0 
+
+--- not found in filldesc cc
+###pramCC: useMVAonly  inCC: 207  inFillDesc: 0 
+207:      useMVAonly_.push_back(false);
+213:    useMVAonly_.push_back(false);
+--- not found in filldesc cc
+###FinalCheck fillDesc 0 redundent 0  cfipython 0 redeudent 0
 ***********************************************************************
-#TargetCC: /RecoTracker/FinalTrackSelectors/plugins/AnalyticalTrackSelector.cc     #Function: AnalyticalTrackSelector
-106:  if (cfg.exists("useAnyMVA"))
-150:      cfg.existsAs<int32_t>("max_minMissHitOutOrIn") ? cfg.getParameter<int32_t>("max_minMissHitOutOrIn") : 99);
-152:      cfg.existsAs<double>("max_lostHitFraction") ? cfg.getParameter<double>("max_lostHitFraction") : 1.0);
-158:  keepAllTracks_.push_back(cfg.exists("keepAllTracks") ? cfg.getParameter<bool>("keepAllTracks") : false);
-168:  if (cfg.exists("qualityBit")) {
-193:    if (cfg.exists("useMVA"))
-198:      if (cfg.exists("minMVA"))
-201:      mvaType_.push_back(cfg.exists("mvaType") ? cfg.getParameter<std::string>("mvaType") : "Detached");
-202:      forestLabel_.push_back(cfg.exists("GBRForestLabel") ? cfg.getParameter<std::string>("GBRForestLabel")
-204:      useMVAonly_.push_back(cfg.exists("useMVAonly") ? cfg.getParameter<bool>("useMVAonly") : false);
-###pramCC: useAnyMVA  lineCC: 104 lineFill: 0
-###pramCC: max_minMissHitOutOrIn  lineCC: 93 lineFill: 0
-###pramCC: max_lostHitFraction  lineCC: 94 lineFill: 0
-###pramCC: keepAllTracks  lineCC: 176 lineFill: 0
-###pramCC: qualityBit  lineCC: 161 lineFill: 0
-###pramCC: useMVA  lineCC: 99 lineFill: 0
-###pramCC: minMVA  lineCC: 199 lineFill: 0
-###pramCC: mvaType  lineCC: 98 lineFill: 0
-###pramCC: GBRForestLabel  lineCC:  lineFill: 0
-###pramCC: useMVAonly  lineCC: 207 lineFill: 0
-### FinalCheck ccfillDesc 0 0  cfipython 0 0
-***********************************************************************
-#TargetCC: /RecoTracker/FinalTrackSelectors/plugins/AnalyticalTrackSelector.cc     #Function: AnalyticalTrackSelector
-106:  if (cfg.exists("useAnyMVA"))
-150:      cfg.existsAs<int32_t>("max_minMissHitOutOrIn") ? cfg.getParameter<int32_t>("max_minMissHitOutOrIn") : 99);
-152:      cfg.existsAs<double>("max_lostHitFraction") ? cfg.getParameter<double>("max_lostHitFraction") : 1.0);
-158:  keepAllTracks_.push_back(cfg.exists("keepAllTracks") ? cfg.getParameter<bool>("keepAllTracks") : false);
-168:  if (cfg.exists("qualityBit")) {
-193:    if (cfg.exists("useMVA"))
-198:      if (cfg.exists("minMVA"))
-201:      mvaType_.push_back(cfg.exists("mvaType") ? cfg.getParameter<std::string>("mvaType") : "Detached");
-202:      forestLabel_.push_back(cfg.exists("GBRForestLabel") ? cfg.getParameter<std::string>("GBRForestLabel")
-204:      useMVAonly_.push_back(cfg.exists("useMVAonly") ? cfg.getParameter<bool>("useMVAonly") : false);
-###pramCC: useAnyMVA  lineCC: 104 lineFill: 0
-###pramCC: max_minMissHitOutOrIn  lineCC: 93 lineFill: 0
-###pramCC: max_lostHitFraction  lineCC: 94 lineFill: 0
-###pramCC: keepAllTracks  lineCC: 176 lineFill: 0
-###pramCC: qualityBit  lineCC: 161 lineFill: 0
-###pramCC: useMVA  lineCC: 99 lineFill: 0
-###pramCC: minMVA  lineCC: 199 lineFill: 0
-###pramCC: mvaType  lineCC: 98 lineFill: 0
-###pramCC: GBRForestLabel  lineCC:  lineFill: 0
-###pramCC: useMVAonly  lineCC: 207 lineFill: 0
-### FinalCheck ccfillDesc 0 0  cfipython 0 0
-***********************************************************************
-#TargetCC: /RecoTracker/FinalTrackSelectors/plugins/MultiTrackSelector.cc     #Function: MultiTrackSelector
+#targetCC: /RecoTracker/FinalTrackSelectors/plugins/MultiTrackSelector.cc     #function: MultiTrackSelector
 35:  if (cfg.exists("useAnyMVA"))
 39:    if (cfg.exists("GBRForestFileName")) {
 115:    max_minMissHitOutOrIn_.push_back(trkSelectors[i].existsAs<int32_t>("max_minMissHitOutOrIn")
@@ -81,91 +74,122 @@
 176:        mvaType_.push_back(trkSelectors[i].exists("mvaType") ? trkSelectors[i].getParameter<std::string>("mvaType")
 178:        forestLabel_.push_back(trkSelectors[i].exists("GBRForestLabel")
 181:        useMVAonly_.push_back(trkSelectors[i].exists("useMVAonly") ? trkSelectors[i].getParameter<bool>("useMVAonly")
-###pramCC: useAnyMVA  lineCC: 31 lineFill: 0
-###pramCC: GBRForestFileName  lineCC: 40 lineFill: 0
-###pramCC: max_minMissHitOutOrIn  lineCC: 69 lineFill: 0
-###pramCC: max_lostHitFraction  lineCC: 70 lineFill: 0
-###pramCC: min_eta  lineCC: 71 lineFill: 0
-###pramCC: max_eta  lineCC: 72 lineFill: 0
-###pramCC: useMVA  lineCC: 73 lineFill: 0
-###pramCC: minMVA  lineCC: 174 lineFill: 0
-###pramCC: mvaType  lineCC: 77 lineFill: 0
-###pramCC: GBRForestLabel  lineCC: 179 lineFill: 0
-###pramCC: useMVAonly  lineCC: 74 lineFill: 0
-### FinalCheck ccfillDesc 0 0  cfipython 0 0
+###pramCC: useAnyMVA  inCC: 31  inFillDesc: 0 
+31:  useAnyMVA_ = false;
+36:    useAnyMVA_ = cfg.getParameter<bool>("useAnyMVA");
+38:  if (useAnyMVA_) {
+166:    if (useAnyMVA_) {
+285:        if (useAnyMVA_)
+360:  if (useAnyMVA_ && useMVA_[tsNum]) {
+558:  if (!useAnyMVA_ && writeIt) {
+--- not found in filldesc cc
+###pramCC: GBRForestFileName  inCC: 40  inFillDesc: 0 
+40:      dbFileName_ = cfg.getParameter<std::string>("GBRForestFileName");
+--- not found in filldesc cc
+###pramCC: max_minMissHitOutOrIn  inCC: 69  inFillDesc: 0 
+69:  max_minMissHitOutOrIn_.reserve(trkSelectors.size());
+116:                                         ? trkSelectors[i].getParameter<int32_t>("max_minMissHitOutOrIn")
+423:  if (minLost > max_minMissHitOutOrIn_[tsNum])
+--- not found in filldesc cc
+###pramCC: max_lostHitFraction  inCC: 70  inFillDesc: 0 
+70:  max_lostHitFraction_.reserve(trkSelectors.size());
+119:                                       ? trkSelectors[i].getParameter<double>("max_lostHitFraction")
+426:  if (lostMidFrac > max_lostHitFraction_[tsNum])
+--- not found in filldesc cc
+###pramCC: min_eta  inCC: 71  inFillDesc: 0 
+71:  min_eta_.reserve(trkSelectors.size());
+412:  if (eta < min_eta_[tsNum] || eta > max_eta_[tsNum])
+--- not found in filldesc cc
+###pramCC: max_eta  inCC: 72  inFillDesc: 0 
+72:  max_eta_.reserve(trkSelectors.size());
+412:  if (eta < min_eta_[tsNum] || eta > max_eta_[tsNum])
+--- not found in filldesc cc
+###pramCC: useMVA  inCC: 73  inFillDesc: 0 
+73:  useMVA_.reserve(trkSelectors.size());
+74:  useMVAonly_.reserve(trkSelectors.size());
+169:        thisMVA = trkSelectors[i].getParameter<bool>("useMVA");
+170:      useMVA_.push_back(thisMVA);
+185:        useMVAonly_.push_back(false);
+190:      useMVA_.push_back(false);
+191:      useMVAonly_.push_back(false);
+360:  if (useAnyMVA_ && useMVA_[tsNum]) {
+361:    if (useMVAonly_[tsNum])
+568:  if (!useMVA_[selIndex] && !writeIt)
+--- not found in filldesc cc
+###pramCC: minMVA  inCC: 174  inFillDesc: 0 
+174:          minVal = trkSelectors[i].getParameter<double>("minMVA");
+--- not found in filldesc cc
+###pramCC: mvaType  inCC: 77  inFillDesc: 0 
+77:  mvaType_.reserve(trkSelectors.size());
+186:        mvaType_.push_back("Detached");
+193:      mvaType_.push_back("Detached");
+635:    if (mvaType_[selIndex] == "Prompt") {
+--- not found in filldesc cc
+###pramCC: GBRForestLabel  inCC: 179  inFillDesc: 0 
+179:                                   ? trkSelectors[i].getParameter<std::string>("GBRForestLabel")
+--- not found in filldesc cc
+###pramCC: useMVAonly  inCC: 74  inFillDesc: 0 
+74:  useMVAonly_.reserve(trkSelectors.size());
+185:        useMVAonly_.push_back(false);
+191:      useMVAonly_.push_back(false);
+361:    if (useMVAonly_[tsNum])
+--- not found in filldesc cc
+###FinalCheck fillDesc 0 redundent 0  cfipython 0 redeudent 0
 ***********************************************************************
-#TargetCC: /RecoTracker/FinalTrackSelectors/plugins/MultiTrackSelector.cc     #Function: MultiTrackSelector
-35:  if (cfg.exists("useAnyMVA"))
-39:    if (cfg.exists("GBRForestFileName")) {
-115:    max_minMissHitOutOrIn_.push_back(trkSelectors[i].existsAs<int32_t>("max_minMissHitOutOrIn")
-118:    max_lostHitFraction_.push_back(trkSelectors[i].existsAs<double>("max_lostHitFraction")
-121:    min_eta_.push_back(trkSelectors[i].existsAs<double>("min_eta") ? trkSelectors[i].getParameter<double>("min_eta")
-123:    max_eta_.push_back(trkSelectors[i].existsAs<double>("max_eta") ? trkSelectors[i].getParameter<double>("max_eta")
-168:      if (trkSelectors[i].exists("useMVA"))
-173:        if (trkSelectors[i].exists("minMVA"))
-176:        mvaType_.push_back(trkSelectors[i].exists("mvaType") ? trkSelectors[i].getParameter<std::string>("mvaType")
-178:        forestLabel_.push_back(trkSelectors[i].exists("GBRForestLabel")
-181:        useMVAonly_.push_back(trkSelectors[i].exists("useMVAonly") ? trkSelectors[i].getParameter<bool>("useMVAonly")
-###pramCC: useAnyMVA  lineCC: 31 lineFill: 0
-###pramCC: GBRForestFileName  lineCC: 40 lineFill: 0
-###pramCC: max_minMissHitOutOrIn  lineCC: 69 lineFill: 0
-###pramCC: max_lostHitFraction  lineCC: 70 lineFill: 0
-###pramCC: min_eta  lineCC: 71 lineFill: 0
-###pramCC: max_eta  lineCC: 72 lineFill: 0
-###pramCC: useMVA  lineCC: 73 lineFill: 0
-###pramCC: minMVA  lineCC: 174 lineFill: 0
-###pramCC: mvaType  lineCC: 77 lineFill: 0
-###pramCC: GBRForestLabel  lineCC: 179 lineFill: 0
-###pramCC: useMVAonly  lineCC: 74 lineFill: 0
-### FinalCheck ccfillDesc 0 0  cfipython 0 0
-***********************************************************************
-#TargetCC: /RecoTracker/SpecialSeedGenerators/src/SimpleCosmicBONSeeder.cc     #Function: SimpleCosmicBONSeeder
+#targetCC: /RecoTracker/SpecialSeedGenerators/src/SimpleCosmicBONSeeder.cc     #function: SimpleCosmicBONSeeder
 31:      seedOnMiddle_(conf.existsAs<bool>("seedOnMiddle") ? conf.getParameter<bool>("seedOnMiddle") : false),
 32:      rescaleError_(conf.existsAs<double>("rescaleError") ? conf.getParameter<double>("rescaleError") : 1.0),
 56:  if (conf.existsAs<edm::ParameterSet>("ClusterChargeCheck")) {
 69:  if (conf.existsAs<edm::ParameterSet>("HitsPerModuleCheck")) {
-###pramCC: seedOnMiddle  lineCC: 536 lineFill: 0
-###pramCC: rescaleError  lineCC: 524 lineFill: 0
-###pramCC: ClusterChargeCheck  lineCC: 57 lineFill: 0
-###pramCC: HitsPerModuleCheck  lineCC: 70 lineFill: 0
-### FinalCheck ccfillDesc 0 0  cfipython 0 0
+###pramCC: seedOnMiddle  inCC: 536  inFillDesc: 0 
+536:      if ((ih == 2) && seedOnMiddle_) {
+607:          updated, (*(seedOnMiddle_ ? trip.middle() : trip.inner())).geographicalId().rawId());
+--- not found in filldesc cc
+###pramCC: rescaleError  inCC: 524  inFillDesc: 0 
+524:    CosmicSeed.rescaleError(100);
+584:      if (rescaleError_ != 1.0) {
+586:          std::cout << "Processing triplet " << it << ", rescale error by " << rescaleError_
+591:        updated.rescaleError(rescaleError_);
+--- not found in filldesc cc
+###pramCC: ClusterChargeCheck  inCC: 57  inFillDesc: 0 
+57:    edm::ParameterSet cccc = conf.getParameter<edm::ParameterSet>("ClusterChargeCheck");
+--- not found in filldesc cc
+###pramCC: HitsPerModuleCheck  inCC: 70  inFillDesc: 0 
+70:    edm::ParameterSet hpmcc = conf.getParameter<edm::ParameterSet>("HitsPerModuleCheck");
+--- not found in filldesc cc
+###FinalCheck fillDesc 0 redundent 0  cfipython 0 redeudent 0
 ***********************************************************************
-#TargetCC: /RecoTracker/SpecialSeedGenerators/src/SimpleCosmicBONSeeder.cc     #Function: SimpleCosmicBONSeeder
-31:      seedOnMiddle_(conf.existsAs<bool>("seedOnMiddle") ? conf.getParameter<bool>("seedOnMiddle") : false),
-32:      rescaleError_(conf.existsAs<double>("rescaleError") ? conf.getParameter<double>("rescaleError") : 1.0),
-56:  if (conf.existsAs<edm::ParameterSet>("ClusterChargeCheck")) {
-69:  if (conf.existsAs<edm::ParameterSet>("HitsPerModuleCheck")) {
-###pramCC: seedOnMiddle  lineCC: 536 lineFill: 0
-###pramCC: rescaleError  lineCC: 524 lineFill: 0
-###pramCC: ClusterChargeCheck  lineCC: 57 lineFill: 0
-###pramCC: HitsPerModuleCheck  lineCC: 70 lineFill: 0
-### FinalCheck ccfillDesc 0 0  cfipython 0 0
-***********************************************************************
-#TargetCC: /RecoTracker/TkSeedGenerator/plugins/MultiHitGeneratorFromChi2.cc     #Function: MultiHitGeneratorFromChi2
+#targetCC: /RecoTracker/TkSeedGenerator/plugins/MultiHitGeneratorFromChi2.cc     #function: MultiHitGeneratorFromChi2
 67:      builderName_(cfg.existsAs<std::string>("TTRHBuilder") ? cfg.getParameter<std::string>("TTRHBuilder")
 89:  if (cfg.exists("SimpleMagneticField")) {
-###FillDescription : 110:void MultiHitGeneratorFromChi2::fillDescriptions(edm::ParameterSetDescription& desc) {
-###pramCC: TTRHBuilder  lineCC: 128 lineFill: 110
---- In cc : 128:  desc.add<std::string>("TTRHBuilder", "WithTrackAngle");
---- In cfipy : 103:    TTRHBuilder = cms.string('hltESPTTRHBWithTrackAngle')
-###pramCC: SimpleMagneticField  lineCC: 87 lineFill: 110
-### FinalCheck ccfillDesc 1 1  cfipython 0 1
-==> Please Check and Update /RecoTracker/TkSeedGenerator/plugins/MultiHitGeneratorFromChi2.cc !!!  1 1 0 1 ../cfipython/slc7_amd64_gcc900/RecoMuon/L2MuonProducer/L2MuonProducer_cfi.py
-###################################################################3
+###pramCC: TTRHBuilder  inCC: 128  inFillDesc: 0 
+128:  desc.add<std::string>("TTRHBuilder", "WithTrackAngle");
+--- not found in filldesc cc
+###pramCC: SimpleMagneticField  inCC: 87  inFillDesc: 0 
+87:  // and use only a string magneticField [instead of SimpleMagneticField]
+91:    mfName_ = cfg.getParameter<std::string>("SimpleMagneticField");
+--- not found in filldesc cc
+###FinalCheck fillDesc 0 redundent 0  cfipython 0 redeudent 0
 ***********************************************************************
-#TargetCC: /RecoTracker/TkSeedGenerator/src/ClusterChecker.cc     #Function: ClusterChecker
+#targetCC: /RecoTracker/TkSeedGenerator/src/ClusterChecker.cc     #function: ClusterChecker
+#cfipython: ../cfipython/slc7_amd64_gcc900/RecoTracker/TkSeedGenerator/trackerClusterCheckDefault_cfi.py
 14:      selector_(conf.getParameter<bool>("doClusterCheck") && conf.existsAs<std::string>("cut")
 24:    if (conf.existsAs<uint32_t>("DontCountDetsAboveNClusters")) {
-###FillDescription : 32:void ClusterChecker::fillDescriptions(edm::ParameterSetDescription& desc) {
-###Cfipython : RecoTracker/TkSeedGenerator/trackerClusterCheckDefault_cfi.py trackerClusterCheckDefault cms.EDProducer ClusterCheckerEDProducer
-###pramCC: doClusterCheck  lineCC: 13 lineFill: 32
---- In cfipy : 4:  doClusterCheck = cms.bool(True),
-###pramCC: DontCountDetsAboveNClusters  lineCC: 25 lineFill: 32
-### FinalCheck ccfillDesc 1 0  cfipython 1 1
-==> Please Check and Update /RecoTracker/TkSeedGenerator/src/ClusterChecker.cc !!!  1 0 1 1 ../cfipython/slc7_amd64_gcc900/RecoTracker/TkSeedGenerator/trackerClusterCheckDefault_cfi.py
-###################################################################3
+###pramCC: doClusterCheck  inCC: 13  inFillDesc: 0 
+13:    : doACheck_(conf.getParameter<bool>("doClusterCheck")),
+33:  desc.add<bool>("doClusterCheck", true);
+--- not found in filldesc cc
+--- in cfipy : 4:  doClusterCheck = cms.bool(True),
+###pramCC: DontCountDetsAboveNClusters  inCC: 25  inFillDesc: 0 
+25:      ignoreDetsAboveNClusters_ = conf.getParameter<uint32_t>("DontCountDetsAboveNClusters");
+--- not found in filldesc cc
+--- not found in cfi
+###FinalCheck fillDesc 0 redundent 0  cfipython 1 redeudent 1
+>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+Please check /RecoTracker/TkSeedGenerator/src/ClusterChecker.cc ! 0 0 1 1 ../cfipython/slc7_amd64_gcc900/RecoTracker/TkSeedGenerator/trackerClusterCheckDefault_cfi.py
+>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
 ***********************************************************************
-#TargetCC: /RecoTracker/TkSeedingLayers/src/SeedingLayerSetsBuilder.cc     #Function: LayerSpec
+#targetCC: /RecoTracker/TkSeedingLayers/src/SeedingLayerSetsBuilder.cc     #function: LayerSpec
 108:  if (cfgLayer.exists("HitProducer")) {
 113:  bool skipClusters = cfgLayer.exists("skipClusters");
 128:    if (cfgLayer.exists("matchedRecHits")) {
@@ -177,23 +201,84 @@
 147:    double minAbsZ = cfgLayer.exists("MinAbsZ") ? cfgLayer.getParameter<double>("MinAbsZ") : 0.;
 152:      bool useProjection = cfgLayer.exists("useProjection") ? cfgLayer.getParameter<bool>("useProjection") : false;
 270:    if (cfg.exists(name))
-###FillDescription : 247:void SeedingLayerSetsBuilder::fillDescriptions(edm::ParameterSetDescription& desc) {
-###pramCC: HitProducer  lineCC: 107 lineFill: 247
-###pramCC: skipClusters  lineCC: 114 lineFill: 247
-###pramCC: matchedRecHits  lineCC: 129 lineFill: 247
-###pramCC: rphiRecHits  lineCC: 132 lineFill: 247
-###pramCC: stereoRecHits  lineCC: 135 lineFill: 247
-###pramCC: vectorRecHits  lineCC: 138 lineFill: 247
-###pramCC: useRingSlector  lineCC:  lineFill: 247
-###pramCC: useSimpleRphiHitsCleaner  lineCC: 143 lineFill: 247
-###pramCC: MinAbsZ  lineCC: 149 lineFill: 247
-###pramCC: useProjection  lineCC: 153 lineFill: 247
-###pramCC: if (cfg.exists(name))  lineCC: .//RecoTracker/TkSeedingLayers/src/SeedingLayerSetsBuilder.cc lineFill: 247
-### FinalCheck ccfillDesc 1 0  cfipython 0 0
-==> Please Check and Update /RecoTracker/TkSeedingLayers/src/SeedingLayerSetsBuilder.cc !!!  1 0 0 0 ../cfipython/slc7_amd64_gcc900/RecoTracker/TkSeedGenerator/trackerClusterCheckDefault_cfi.py
-###################################################################3
+###pramCC: HitProducer  inCC: 107  inFillDesc: 0 
+107:  usePixelHitProducer = false;
+109:    pixelHitProducer = cfgLayer.getParameter<string>("HitProducer");
+110:    usePixelHitProducer = true;
+125:    extractor = std::make_unique<HitExtractorPIX>(side, idLayer, pixelHitProducer, iC);
+--- not found in filldesc cc
+###pramCC: skipClusters  inCC: 114  inFillDesc: 0 
+114:  if (skipClusters) {
+151:    if (skipClusters) {
+161:  if (extractor && skipClusters) {
+162:    extractor->useSkipClusters(cfgLayer.getParameter<edm::InputTag>("skipClusters"), iC);
+--- not found in filldesc cc
+###pramCC: matchedRecHits  inCC: 129  inFillDesc: 0 
+129:      extr->useMatchedHits(cfgLayer.getParameter<edm::InputTag>("matchedRecHits"), iC);
+--- not found in filldesc cc
+###pramCC: rphiRecHits  inCC: 132  inFillDesc: 0 
+132:      extr->useRPhiHits(cfgLayer.getParameter<edm::InputTag>("rphiRecHits"), iC);
+--- not found in filldesc cc
+###pramCC: stereoRecHits  inCC: 135  inFillDesc: 0 
+135:      extr->useStereoHits(cfgLayer.getParameter<edm::InputTag>("stereoRecHits"), iC);
+--- not found in filldesc cc
+###pramCC: vectorRecHits  inCC: 138  inFillDesc: 0 
+138:      extr->useVectorHits(cfgLayer.getParameter<edm::InputTag>("vectorRecHits"), iC);
+--- not found in filldesc cc
+###pramCC: useRingSlector  inCC:   inFillDesc: 0 
+
+--- not found in filldesc cc
+###pramCC: useSimpleRphiHitsCleaner  inCC: 143  inFillDesc: 0 
+143:    bool useSimpleRphiHitsCleaner =
+145:    extr->useSimpleRphiHitsCleaner(useSimpleRphiHitsCleaner);
+--- not found in filldesc cc
+###pramCC: MinAbsZ  inCC: 149  inFillDesc: 0 
+149:      extr->setMinAbsZ(minAbsZ);
+--- not found in filldesc cc
+###pramCC: useProjection  inCC: 153  inFillDesc: 0 
+153:      if (useProjection) {
+--- not found in filldesc cc
+###pramCC: if (cfg.exists(name))  inCC: .//RecoTracker/TkSeedingLayers/src/SeedingLayerSetsBuilder.cc  inFillDesc: 0 
+.//RecoTracker/TkSeedingLayers/src/SeedingLayerSetsBuilder.cc:40:  if ((index = name.find("BPix")) != string::npos) {
+.//RecoTracker/TkSeedingLayers/src/SeedingLayerSetsBuilder.cc:48:  else if ((index = name.find("FPix")) != string::npos) {
+.//RecoTracker/TkSeedingLayers/src/SeedingLayerSetsBuilder.cc:51:    if (name.find("pos") != string::npos) {
+.//RecoTracker/TkSeedingLayers/src/SeedingLayerSetsBuilder.cc:60:  else if ((index = name.find("TIB")) != string::npos) {
+.//RecoTracker/TkSeedingLayers/src/SeedingLayerSetsBuilder.cc:68:  else if ((index = name.find("TID")) != string::npos) {
+.//RecoTracker/TkSeedingLayers/src/SeedingLayerSetsBuilder.cc:71:    if (name.find("pos") != string::npos) {
+.//RecoTracker/TkSeedingLayers/src/SeedingLayerSetsBuilder.cc:80:  else if ((index = name.find("TOB")) != string::npos) {
+.//RecoTracker/TkSeedingLayers/src/SeedingLayerSetsBuilder.cc:88:  else if ((index = name.find("TEC")) != string::npos) {
+.//RecoTracker/TkSeedingLayers/src/SeedingLayerSetsBuilder.cc:91:    if (name.find("pos") != string::npos) {
+.//RecoTracker/TkSeedingLayers/src/SeedingLayerSetsBuilder.cc:114:  if (skipClusters) {
+.//RecoTracker/TkSeedingLayers/src/SeedingLayerSetsBuilder.cc:124:  if (subdet == GeomDetEnumerators::PixelBarrel || subdet == GeomDetEnumerators::PixelEndcap) {
+.//RecoTracker/TkSeedingLayers/src/SeedingLayerSetsBuilder.cc:126:  } else if (subdet != GeomDetEnumerators::invalidDet) {  // strip
+.//RecoTracker/TkSeedingLayers/src/SeedingLayerSetsBuilder.cc:148:    if (minAbsZ > 0.) {
+.//RecoTracker/TkSeedingLayers/src/SeedingLayerSetsBuilder.cc:151:    if (skipClusters) {
+.//RecoTracker/TkSeedingLayers/src/SeedingLayerSetsBuilder.cc:153:      if (useProjection) {
+.//RecoTracker/TkSeedingLayers/src/SeedingLayerSetsBuilder.cc:161:  if (extractor && skipClusters) {
+.//RecoTracker/TkSeedingLayers/src/SeedingLayerSetsBuilder.cc:172:  if ((ext = dynamic_cast<HitExtractorSTRP*>(extractor.get())) && ext->useRingSelector()) {
+.//RecoTracker/TkSeedingLayers/src/SeedingLayerSetsBuilder.cc:181://FastSim specific constructor
+.//RecoTracker/TkSeedingLayers/src/SeedingLayerSetsBuilder.cc:206:  if (layerNamesInSets.empty())
+.//RecoTracker/TkSeedingLayers/src/SeedingLayerSetsBuilder.cc:212:    if (it->size() != theNumberOfLayersInSet)
+.//RecoTracker/TkSeedingLayers/src/SeedingLayerSetsBuilder.cc:219:      if (found != theLayerNames.end()) {
+.//RecoTracker/TkSeedingLayers/src/SeedingLayerSetsBuilder.cc:222:        if (std::numeric_limits<unsigned short>::max() == theLayerNames.size()) {
+.//RecoTracker/TkSeedingLayers/src/SeedingLayerSetsBuilder.cc:299:  if (!(geometryWatcher_.check(es) | trhWatcher_.check(es)))
+.//RecoTracker/TkSeedingLayers/src/SeedingLayerSetsBuilder.cc:320:    if (layer.subdet == GeomDetEnumerators::PixelBarrel) {
+.//RecoTracker/TkSeedingLayers/src/SeedingLayerSetsBuilder.cc:322:    } else if (layer.subdet == GeomDetEnumerators::PixelEndcap) {
+.//RecoTracker/TkSeedingLayers/src/SeedingLayerSetsBuilder.cc:323:      if (layer.side == TrackerDetSide::PosEndcap) {
+.//RecoTracker/TkSeedingLayers/src/SeedingLayerSetsBuilder.cc:328:    } else if (layer.subdet == GeomDetEnumerators::TIB) {
+.//RecoTracker/TkSeedingLayers/src/SeedingLayerSetsBuilder.cc:330:    } else if (layer.subdet == GeomDetEnumerators::TID) {
+.//RecoTracker/TkSeedingLayers/src/SeedingLayerSetsBuilder.cc:331:      if (layer.side == TrackerDetSide::PosEndcap) {
+.//RecoTracker/TkSeedingLayers/src/SeedingLayerSetsBuilder.cc:336:    } else if (layer.subdet == GeomDetEnumerators::TOB) {
+.//RecoTracker/TkSeedingLayers/src/SeedingLayerSetsBuilder.cc:338:    } else if (layer.subdet == GeomDetEnumerators::TEC) {
+.//RecoTracker/TkSeedingLayers/src/SeedingLayerSetsBuilder.cc:339:      if (layer.side == TrackerDetSide::PosEndcap) {
+.//RecoTracker/TkSeedingLayers/src/SeedingLayerSetsBuilder.cc:395:      if ((rh.det()->geographicalId()).subdetId() == PixelSubdetector::PixelBarrel) {
+.//RecoTracker/TkSeedingLayers/src/SeedingLayerSetsBuilder.cc:399:      } else if ((rh.det()->geographicalId()).subdetId() == PixelSubdetector::PixelEndcap) {
+.//RecoTracker/TkSeedingLayers/src/SeedingLayerSetsBuilder.cc:402:        if (tTopo->pxfSide(rh.det()->geographicalId()) == 1)
+.//RecoTracker/TkSeedingLayers/src/SeedingLayerSetsBuilder.cc:408:      if (layer.subdet == subdet && layer.side == side && layer.idLayer == idLayer) {
+--- not found in filldesc cc
+###FinalCheck fillDesc 0 redundent 0  cfipython 0 redeudent 0
 ***********************************************************************
-#TargetCC: /RecoTracker/TkSeedingLayers/src/SeedingLayerSetsBuilder.cc     #Function: LayerSpec
+#targetCC: /RecoTracker/TkSeedingLayers/src/SeedingLayerSetsBuilder.cc     #function: layerConfig
 108:  if (cfgLayer.exists("HitProducer")) {
 113:  bool skipClusters = cfgLayer.exists("skipClusters");
 128:    if (cfgLayer.exists("matchedRecHits")) {
@@ -205,244 +290,194 @@
 147:    double minAbsZ = cfgLayer.exists("MinAbsZ") ? cfgLayer.getParameter<double>("MinAbsZ") : 0.;
 152:      bool useProjection = cfgLayer.exists("useProjection") ? cfgLayer.getParameter<bool>("useProjection") : false;
 270:    if (cfg.exists(name))
-###FillDescription : 247:void SeedingLayerSetsBuilder::fillDescriptions(edm::ParameterSetDescription& desc) {
-###pramCC: HitProducer  lineCC: 107 lineFill: 247
-###pramCC: skipClusters  lineCC: 114 lineFill: 247
-###pramCC: matchedRecHits  lineCC: 129 lineFill: 247
-###pramCC: rphiRecHits  lineCC: 132 lineFill: 247
-###pramCC: stereoRecHits  lineCC: 135 lineFill: 247
-###pramCC: vectorRecHits  lineCC: 138 lineFill: 247
-###pramCC: useRingSlector  lineCC:  lineFill: 247
-###pramCC: useSimpleRphiHitsCleaner  lineCC: 143 lineFill: 247
-###pramCC: MinAbsZ  lineCC: 149 lineFill: 247
-###pramCC: useProjection  lineCC: 153 lineFill: 247
-###pramCC: if (cfg.exists(name))  lineCC: .//RecoTracker/TkSeedingLayers/src/SeedingLayerSetsBuilder.cc lineFill: 247
-### FinalCheck ccfillDesc 1 0  cfipython 0 0
-==> Please Check and Update /RecoTracker/TkSeedingLayers/src/SeedingLayerSetsBuilder.cc !!!  1 0 0 0 ../cfipython/slc7_amd64_gcc900/RecoTracker/TkSeedGenerator/trackerClusterCheckDefault_cfi.py
-###################################################################3
+###pramCC: HitProducer  inCC: 107  inFillDesc: 0 
+107:  usePixelHitProducer = false;
+109:    pixelHitProducer = cfgLayer.getParameter<string>("HitProducer");
+110:    usePixelHitProducer = true;
+125:    extractor = std::make_unique<HitExtractorPIX>(side, idLayer, pixelHitProducer, iC);
+--- not found in filldesc cc
+###pramCC: skipClusters  inCC: 114  inFillDesc: 0 
+114:  if (skipClusters) {
+151:    if (skipClusters) {
+161:  if (extractor && skipClusters) {
+162:    extractor->useSkipClusters(cfgLayer.getParameter<edm::InputTag>("skipClusters"), iC);
+--- not found in filldesc cc
+###pramCC: matchedRecHits  inCC: 129  inFillDesc: 0 
+129:      extr->useMatchedHits(cfgLayer.getParameter<edm::InputTag>("matchedRecHits"), iC);
+--- not found in filldesc cc
+###pramCC: rphiRecHits  inCC: 132  inFillDesc: 0 
+132:      extr->useRPhiHits(cfgLayer.getParameter<edm::InputTag>("rphiRecHits"), iC);
+--- not found in filldesc cc
+###pramCC: stereoRecHits  inCC: 135  inFillDesc: 0 
+135:      extr->useStereoHits(cfgLayer.getParameter<edm::InputTag>("stereoRecHits"), iC);
+--- not found in filldesc cc
+###pramCC: vectorRecHits  inCC: 138  inFillDesc: 0 
+138:      extr->useVectorHits(cfgLayer.getParameter<edm::InputTag>("vectorRecHits"), iC);
+--- not found in filldesc cc
+###pramCC: useRingSlector  inCC:   inFillDesc: 0 
+
+--- not found in filldesc cc
+###pramCC: useSimpleRphiHitsCleaner  inCC: 143  inFillDesc: 0 
+143:    bool useSimpleRphiHitsCleaner =
+145:    extr->useSimpleRphiHitsCleaner(useSimpleRphiHitsCleaner);
+--- not found in filldesc cc
+###pramCC: MinAbsZ  inCC: 149  inFillDesc: 0 
+149:      extr->setMinAbsZ(minAbsZ);
+--- not found in filldesc cc
+###pramCC: useProjection  inCC: 153  inFillDesc: 0 
+153:      if (useProjection) {
+--- not found in filldesc cc
+###pramCC: if (cfg.exists(name))  inCC: .//RecoTracker/TkSeedingLayers/src/SeedingLayerSetsBuilder.cc  inFillDesc: 0 
+.//RecoTracker/TkSeedingLayers/src/SeedingLayerSetsBuilder.cc:40:  if ((index = name.find("BPix")) != string::npos) {
+.//RecoTracker/TkSeedingLayers/src/SeedingLayerSetsBuilder.cc:48:  else if ((index = name.find("FPix")) != string::npos) {
+.//RecoTracker/TkSeedingLayers/src/SeedingLayerSetsBuilder.cc:51:    if (name.find("pos") != string::npos) {
+.//RecoTracker/TkSeedingLayers/src/SeedingLayerSetsBuilder.cc:60:  else if ((index = name.find("TIB")) != string::npos) {
+.//RecoTracker/TkSeedingLayers/src/SeedingLayerSetsBuilder.cc:68:  else if ((index = name.find("TID")) != string::npos) {
+.//RecoTracker/TkSeedingLayers/src/SeedingLayerSetsBuilder.cc:71:    if (name.find("pos") != string::npos) {
+.//RecoTracker/TkSeedingLayers/src/SeedingLayerSetsBuilder.cc:80:  else if ((index = name.find("TOB")) != string::npos) {
+.//RecoTracker/TkSeedingLayers/src/SeedingLayerSetsBuilder.cc:88:  else if ((index = name.find("TEC")) != string::npos) {
+.//RecoTracker/TkSeedingLayers/src/SeedingLayerSetsBuilder.cc:91:    if (name.find("pos") != string::npos) {
+.//RecoTracker/TkSeedingLayers/src/SeedingLayerSetsBuilder.cc:114:  if (skipClusters) {
+.//RecoTracker/TkSeedingLayers/src/SeedingLayerSetsBuilder.cc:124:  if (subdet == GeomDetEnumerators::PixelBarrel || subdet == GeomDetEnumerators::PixelEndcap) {
+.//RecoTracker/TkSeedingLayers/src/SeedingLayerSetsBuilder.cc:126:  } else if (subdet != GeomDetEnumerators::invalidDet) {  // strip
+.//RecoTracker/TkSeedingLayers/src/SeedingLayerSetsBuilder.cc:148:    if (minAbsZ > 0.) {
+.//RecoTracker/TkSeedingLayers/src/SeedingLayerSetsBuilder.cc:151:    if (skipClusters) {
+.//RecoTracker/TkSeedingLayers/src/SeedingLayerSetsBuilder.cc:153:      if (useProjection) {
+.//RecoTracker/TkSeedingLayers/src/SeedingLayerSetsBuilder.cc:161:  if (extractor && skipClusters) {
+.//RecoTracker/TkSeedingLayers/src/SeedingLayerSetsBuilder.cc:172:  if ((ext = dynamic_cast<HitExtractorSTRP*>(extractor.get())) && ext->useRingSelector()) {
+.//RecoTracker/TkSeedingLayers/src/SeedingLayerSetsBuilder.cc:181://FastSim specific constructor
+.//RecoTracker/TkSeedingLayers/src/SeedingLayerSetsBuilder.cc:206:  if (layerNamesInSets.empty())
+.//RecoTracker/TkSeedingLayers/src/SeedingLayerSetsBuilder.cc:212:    if (it->size() != theNumberOfLayersInSet)
+.//RecoTracker/TkSeedingLayers/src/SeedingLayerSetsBuilder.cc:219:      if (found != theLayerNames.end()) {
+.//RecoTracker/TkSeedingLayers/src/SeedingLayerSetsBuilder.cc:222:        if (std::numeric_limits<unsigned short>::max() == theLayerNames.size()) {
+.//RecoTracker/TkSeedingLayers/src/SeedingLayerSetsBuilder.cc:299:  if (!(geometryWatcher_.check(es) | trhWatcher_.check(es)))
+.//RecoTracker/TkSeedingLayers/src/SeedingLayerSetsBuilder.cc:320:    if (layer.subdet == GeomDetEnumerators::PixelBarrel) {
+.//RecoTracker/TkSeedingLayers/src/SeedingLayerSetsBuilder.cc:322:    } else if (layer.subdet == GeomDetEnumerators::PixelEndcap) {
+.//RecoTracker/TkSeedingLayers/src/SeedingLayerSetsBuilder.cc:323:      if (layer.side == TrackerDetSide::PosEndcap) {
+.//RecoTracker/TkSeedingLayers/src/SeedingLayerSetsBuilder.cc:328:    } else if (layer.subdet == GeomDetEnumerators::TIB) {
+.//RecoTracker/TkSeedingLayers/src/SeedingLayerSetsBuilder.cc:330:    } else if (layer.subdet == GeomDetEnumerators::TID) {
+.//RecoTracker/TkSeedingLayers/src/SeedingLayerSetsBuilder.cc:331:      if (layer.side == TrackerDetSide::PosEndcap) {
+.//RecoTracker/TkSeedingLayers/src/SeedingLayerSetsBuilder.cc:336:    } else if (layer.subdet == GeomDetEnumerators::TOB) {
+.//RecoTracker/TkSeedingLayers/src/SeedingLayerSetsBuilder.cc:338:    } else if (layer.subdet == GeomDetEnumerators::TEC) {
+.//RecoTracker/TkSeedingLayers/src/SeedingLayerSetsBuilder.cc:339:      if (layer.side == TrackerDetSide::PosEndcap) {
+.//RecoTracker/TkSeedingLayers/src/SeedingLayerSetsBuilder.cc:395:      if ((rh.det()->geographicalId()).subdetId() == PixelSubdetector::PixelBarrel) {
+.//RecoTracker/TkSeedingLayers/src/SeedingLayerSetsBuilder.cc:399:      } else if ((rh.det()->geographicalId()).subdetId() == PixelSubdetector::PixelEndcap) {
+.//RecoTracker/TkSeedingLayers/src/SeedingLayerSetsBuilder.cc:402:        if (tTopo->pxfSide(rh.det()->geographicalId()) == 1)
+.//RecoTracker/TkSeedingLayers/src/SeedingLayerSetsBuilder.cc:408:      if (layer.subdet == subdet && layer.side == side && layer.idLayer == idLayer) {
+--- not found in filldesc cc
+###FinalCheck fillDesc 0 redundent 0  cfipython 0 redeudent 0
 ***********************************************************************
-#TargetCC: /RecoTracker/TkSeedingLayers/src/SeedingLayerSetsBuilder.cc     #Function: LayerSpec
-108:  if (cfgLayer.exists("HitProducer")) {
-113:  bool skipClusters = cfgLayer.exists("skipClusters");
-128:    if (cfgLayer.exists("matchedRecHits")) {
-131:    if (cfgLayer.exists("rphiRecHits")) {
-134:    if (cfgLayer.exists("stereoRecHits")) {
-137:    if (cfgLayer.exists("vectorRecHits")) {
-140:    if (cfgLayer.exists("useRingSlector") && cfgLayer.getParameter<bool>("useRingSlector")) {
-144:        cfgLayer.exists("useSimpleRphiHitsCleaner") ? cfgLayer.getParameter<bool>("useSimpleRphiHitsCleaner") : true;
-147:    double minAbsZ = cfgLayer.exists("MinAbsZ") ? cfgLayer.getParameter<double>("MinAbsZ") : 0.;
-152:      bool useProjection = cfgLayer.exists("useProjection") ? cfgLayer.getParameter<bool>("useProjection") : false;
-270:    if (cfg.exists(name))
-###FillDescription : 247:void SeedingLayerSetsBuilder::fillDescriptions(edm::ParameterSetDescription& desc) {
-###pramCC: HitProducer  lineCC: 107 lineFill: 247
-###pramCC: skipClusters  lineCC: 114 lineFill: 247
-###pramCC: matchedRecHits  lineCC: 129 lineFill: 247
-###pramCC: rphiRecHits  lineCC: 132 lineFill: 247
-###pramCC: stereoRecHits  lineCC: 135 lineFill: 247
-###pramCC: vectorRecHits  lineCC: 138 lineFill: 247
-###pramCC: useRingSlector  lineCC:  lineFill: 247
-###pramCC: useSimpleRphiHitsCleaner  lineCC: 143 lineFill: 247
-###pramCC: MinAbsZ  lineCC: 149 lineFill: 247
-###pramCC: useProjection  lineCC: 153 lineFill: 247
-###pramCC: if (cfg.exists(name))  lineCC: .//RecoTracker/TkSeedingLayers/src/SeedingLayerSetsBuilder.cc lineFill: 247
-### FinalCheck ccfillDesc 1 0  cfipython 0 0
-==> Please Check and Update /RecoTracker/TkSeedingLayers/src/SeedingLayerSetsBuilder.cc !!!  1 0 0 0 ../cfipython/slc7_amd64_gcc900/RecoTracker/TkSeedGenerator/trackerClusterCheckDefault_cfi.py
-###################################################################3
-***********************************************************************
-#TargetCC: /RecoTracker/TkSeedingLayers/src/SeedingLayerSetsBuilder.cc     #Function: LayerSpec
-108:  if (cfgLayer.exists("HitProducer")) {
-113:  bool skipClusters = cfgLayer.exists("skipClusters");
-128:    if (cfgLayer.exists("matchedRecHits")) {
-131:    if (cfgLayer.exists("rphiRecHits")) {
-134:    if (cfgLayer.exists("stereoRecHits")) {
-137:    if (cfgLayer.exists("vectorRecHits")) {
-140:    if (cfgLayer.exists("useRingSlector") && cfgLayer.getParameter<bool>("useRingSlector")) {
-144:        cfgLayer.exists("useSimpleRphiHitsCleaner") ? cfgLayer.getParameter<bool>("useSimpleRphiHitsCleaner") : true;
-147:    double minAbsZ = cfgLayer.exists("MinAbsZ") ? cfgLayer.getParameter<double>("MinAbsZ") : 0.;
-152:      bool useProjection = cfgLayer.exists("useProjection") ? cfgLayer.getParameter<bool>("useProjection") : false;
-270:    if (cfg.exists(name))
-###FillDescription : 247:void SeedingLayerSetsBuilder::fillDescriptions(edm::ParameterSetDescription& desc) {
-###pramCC: HitProducer  lineCC: 107 lineFill: 247
-###pramCC: skipClusters  lineCC: 114 lineFill: 247
-###pramCC: matchedRecHits  lineCC: 129 lineFill: 247
-###pramCC: rphiRecHits  lineCC: 132 lineFill: 247
-###pramCC: stereoRecHits  lineCC: 135 lineFill: 247
-###pramCC: vectorRecHits  lineCC: 138 lineFill: 247
-###pramCC: useRingSlector  lineCC:  lineFill: 247
-###pramCC: useSimpleRphiHitsCleaner  lineCC: 143 lineFill: 247
-###pramCC: MinAbsZ  lineCC: 149 lineFill: 247
-###pramCC: useProjection  lineCC: 153 lineFill: 247
-###pramCC: if (cfg.exists(name))  lineCC: .//RecoTracker/TkSeedingLayers/src/SeedingLayerSetsBuilder.cc lineFill: 247
-### FinalCheck ccfillDesc 1 0  cfipython 0 0
-==> Please Check and Update /RecoTracker/TkSeedingLayers/src/SeedingLayerSetsBuilder.cc !!!  1 0 0 0 ../cfipython/slc7_amd64_gcc900/RecoTracker/TkSeedGenerator/trackerClusterCheckDefault_cfi.py
-###################################################################3
-***********************************************************************
-#TargetCC: /RecoTracker/TkSeedingLayers/src/SeedingLayerSetsBuilder.cc     #Function: layerConfig
-108:  if (cfgLayer.exists("HitProducer")) {
-113:  bool skipClusters = cfgLayer.exists("skipClusters");
-128:    if (cfgLayer.exists("matchedRecHits")) {
-131:    if (cfgLayer.exists("rphiRecHits")) {
-134:    if (cfgLayer.exists("stereoRecHits")) {
-137:    if (cfgLayer.exists("vectorRecHits")) {
-140:    if (cfgLayer.exists("useRingSlector") && cfgLayer.getParameter<bool>("useRingSlector")) {
-144:        cfgLayer.exists("useSimpleRphiHitsCleaner") ? cfgLayer.getParameter<bool>("useSimpleRphiHitsCleaner") : true;
-147:    double minAbsZ = cfgLayer.exists("MinAbsZ") ? cfgLayer.getParameter<double>("MinAbsZ") : 0.;
-152:      bool useProjection = cfgLayer.exists("useProjection") ? cfgLayer.getParameter<bool>("useProjection") : false;
-270:    if (cfg.exists(name))
-###FillDescription : 247:void SeedingLayerSetsBuilder::fillDescriptions(edm::ParameterSetDescription& desc) {
-###pramCC: HitProducer  lineCC: 107 lineFill: 247
-###pramCC: skipClusters  lineCC: 114 lineFill: 247
-###pramCC: matchedRecHits  lineCC: 129 lineFill: 247
-###pramCC: rphiRecHits  lineCC: 132 lineFill: 247
-###pramCC: stereoRecHits  lineCC: 135 lineFill: 247
-###pramCC: vectorRecHits  lineCC: 138 lineFill: 247
-###pramCC: useRingSlector  lineCC:  lineFill: 247
-###pramCC: useSimpleRphiHitsCleaner  lineCC: 143 lineFill: 247
-###pramCC: MinAbsZ  lineCC: 149 lineFill: 247
-###pramCC: useProjection  lineCC: 153 lineFill: 247
-###pramCC: if (cfg.exists(name))  lineCC: .//RecoTracker/TkSeedingLayers/src/SeedingLayerSetsBuilder.cc lineFill: 247
-### FinalCheck ccfillDesc 1 0  cfipython 0 0
-==> Please Check and Update /RecoTracker/TkSeedingLayers/src/SeedingLayerSetsBuilder.cc !!!  1 0 0 0 ../cfipython/slc7_amd64_gcc900/RecoTracker/TkSeedGenerator/trackerClusterCheckDefault_cfi.py
-###################################################################3
-***********************************************************************
-#TargetCC: /RecoTracker/TkTrackingRegions/interface/GlobalTrackingRegionProducerFromBeamSpot.h     #Function: GlobalTrackingRegionProducerFromBeamSpot
+#targetCC: /RecoTracker/TkTrackingRegions/interface/GlobalTrackingRegionProducerFromBeamSpot.h     #function: GlobalTrackingRegionProducerFromBeamSpot
 26:    if (!regionPSet.existsAs<double>("nSigmaZ") && !regionPSet.existsAs<double>("originHalfLength")) {
 30:    theNSigmaZ = (regionPSet.existsAs<double>("nSigmaZ") ? regionPSet.getParameter<double>("nSigmaZ") : 0.0);
 32:        (regionPSet.existsAs<double>("originHalfLength") ? regionPSet.getParameter<double>("originHalfLength") : 0.0);
 36:        (regionPSet.existsAs<bool>("useMultipleScattering") ? regionPSet.getParameter<bool>("useMultipleScattering")
-###pramCC: nSigmaZ  lineCC: 27 lineFill: 0
-###pramCC: nSigmaZ  lineCC: 27 lineFill: 0
-###pramCC: originHalfLength  lineCC: 28 lineFill: 0
-###pramCC: useMultipleScattering  lineCC: 50 lineFill: 0
-### FinalCheck ccfillDesc 0 0  cfipython 0 0
+###pramCC: nSigmaZ  inCC: 27  inFillDesc: 0 
+27:      throw cms::Exception("Configuration") << "GlobalTrackingRegionProducerFromBeamSpot: at least one of nSigmaZ, "
+51:      desc.add<double>("nSigmaZ", 4.0);
+69:      desc.add<double>("nSigmaZ", 0.0);  // this is the default in constructor
+--- not found in filldesc cc
+###pramCC: nSigmaZ  inCC: 27  inFillDesc: 0 
+27:      throw cms::Exception("Configuration") << "GlobalTrackingRegionProducerFromBeamSpot: at least one of nSigmaZ, "
+51:      desc.add<double>("nSigmaZ", 4.0);
+69:      desc.add<double>("nSigmaZ", 0.0);  // this is the default in constructor
+--- not found in filldesc cc
+###pramCC: originHalfLength  inCC: 28  inFillDesc: 0 
+28:                                               "originHalfLength must be present in the cfg.\n";
+52:      desc.add<double>("originHalfLength", 0.0);  // this is the default in constructor
+70:      desc.add<double>("originHalfLength", 21.2);
+--- not found in filldesc cc
+###pramCC: useMultipleScattering  inCC: 50  inFillDesc: 0 
+50:      desc.add<bool>("useMultipleScattering", false);
+68:      desc.add<bool>("useMultipleScattering", false);
+--- not found in filldesc cc
+###FinalCheck fillDesc 0 redundent 0  cfipython 0 redeudent 0
 ***********************************************************************
-#TargetCC: /RecoTracker/TkTrackingRegions/interface/GlobalTrackingRegionProducerFromBeamSpot.h     #Function: GlobalTrackingRegionProducerFromBeamSpot
-26:    if (!regionPSet.existsAs<double>("nSigmaZ") && !regionPSet.existsAs<double>("originHalfLength")) {
-30:    theNSigmaZ = (regionPSet.existsAs<double>("nSigmaZ") ? regionPSet.getParameter<double>("nSigmaZ") : 0.0);
-32:        (regionPSet.existsAs<double>("originHalfLength") ? regionPSet.getParameter<double>("originHalfLength") : 0.0);
-36:        (regionPSet.existsAs<bool>("useMultipleScattering") ? regionPSet.getParameter<bool>("useMultipleScattering")
-###pramCC: nSigmaZ  lineCC: 27 lineFill: 0
-###pramCC: nSigmaZ  lineCC: 27 lineFill: 0
-###pramCC: originHalfLength  lineCC: 28 lineFill: 0
-###pramCC: useMultipleScattering  lineCC: 50 lineFill: 0
-### FinalCheck ccfillDesc 0 0  cfipython 0 0
-***********************************************************************
-#TargetCC: /RecoTracker/TkTrackingRegions/interface/GlobalTrackingRegionProducerFromBeamSpot.h     #Function: GlobalTrackingRegionProducerFromBeamSpot
-26:    if (!regionPSet.existsAs<double>("nSigmaZ") && !regionPSet.existsAs<double>("originHalfLength")) {
-30:    theNSigmaZ = (regionPSet.existsAs<double>("nSigmaZ") ? regionPSet.getParameter<double>("nSigmaZ") : 0.0);
-32:        (regionPSet.existsAs<double>("originHalfLength") ? regionPSet.getParameter<double>("originHalfLength") : 0.0);
-36:        (regionPSet.existsAs<bool>("useMultipleScattering") ? regionPSet.getParameter<bool>("useMultipleScattering")
-###pramCC: nSigmaZ  lineCC: 27 lineFill: 0
-###pramCC: nSigmaZ  lineCC: 27 lineFill: 0
-###pramCC: originHalfLength  lineCC: 28 lineFill: 0
-###pramCC: useMultipleScattering  lineCC: 50 lineFill: 0
-### FinalCheck ccfillDesc 0 0  cfipython 0 0
-***********************************************************************
-#TargetCC: /RecoTracker/TkTrackingRegions/interface/GlobalTrackingRegionProducerFromBeamSpot.h     #Function: GlobalTrackingRegionProducerFromBeamSpot
-26:    if (!regionPSet.existsAs<double>("nSigmaZ") && !regionPSet.existsAs<double>("originHalfLength")) {
-30:    theNSigmaZ = (regionPSet.existsAs<double>("nSigmaZ") ? regionPSet.getParameter<double>("nSigmaZ") : 0.0);
-32:        (regionPSet.existsAs<double>("originHalfLength") ? regionPSet.getParameter<double>("originHalfLength") : 0.0);
-36:        (regionPSet.existsAs<bool>("useMultipleScattering") ? regionPSet.getParameter<bool>("useMultipleScattering")
-###pramCC: nSigmaZ  lineCC: 27 lineFill: 0
-###pramCC: nSigmaZ  lineCC: 27 lineFill: 0
-###pramCC: originHalfLength  lineCC: 28 lineFill: 0
-###pramCC: useMultipleScattering  lineCC: 50 lineFill: 0
-### FinalCheck ccfillDesc 0 0  cfipython 0 0
-***********************************************************************
-#TargetCC: /RecoTracker/TkTrackingRegions/plugins/CandidatePointSeededTrackingRegionsProducer.h     #Function: CandidatePointSeededTrackingRegionsProducer
+#targetCC: /RecoTracker/TkTrackingRegions/plugins/CandidatePointSeededTrackingRegionsProducer.h     #function: CandidatePointSeededTrackingRegionsProducer
 143:    if (regPSet.exists("searchOpt"))
-###pramCC: searchOpt  lineCC: 142 lineFill: 0
-### FinalCheck ccfillDesc 0 0  cfipython 0 0
+###pramCC: searchOpt  inCC: 142  inFillDesc: 0 
+142:    m_searchOpt = false;
+144:      m_searchOpt = regPSet.getParameter<bool>("searchOpt");
+179:    desc.add<bool>("searchOpt", false);
+243:                                                                             m_searchOpt));
+270:                                                                             m_searchOpt));
+340:                                                                               m_searchOpt));
+381:  bool m_searchOpt;
+--- not found in filldesc cc
+###FinalCheck fillDesc 0 redundent 0  cfipython 0 redeudent 0
 ***********************************************************************
-#TargetCC: /RecoTracker/TkTrackingRegions/plugins/CandidateSeededTrackingRegionsProducer.h     #Function: CandidateSeededTrackingRegionsProducer
+#targetCC: /RecoTracker/TkTrackingRegions/plugins/CandidateSeededTrackingRegionsProducer.h     #function: CandidateSeededTrackingRegionsProducer
 94:    if (regPSet.exists("searchOpt"))
-###pramCC: searchOpt  lineCC: 93 lineFill: 0
-### FinalCheck ccfillDesc 0 0  cfipython 0 0
+###pramCC: searchOpt  inCC: 93  inFillDesc: 0 
+93:    m_searchOpt = false;
+95:      m_searchOpt = regPSet.getParameter<bool>("searchOpt");
+141:    desc.add<bool>("searchOpt", false);
+230:                                                                           m_searchOpt));
+259:  bool m_searchOpt;
+--- not found in filldesc cc
+###FinalCheck fillDesc 0 redundent 0  cfipython 0 redeudent 0
 ***********************************************************************
-#TargetCC: /RecoTracker/TkTrackingRegions/plugins/PointSeededTrackingRegionsProducer.h     #Function: PointSeededTrackingRegionsProducer
+#targetCC: /RecoTracker/TkTrackingRegions/plugins/PointSeededTrackingRegionsProducer.h     #function: PointSeededTrackingRegionsProducer
 102:    if (regPSet.exists("searchOpt"))
-###pramCC: searchOpt  lineCC: 101 lineFill: 0
-### FinalCheck ccfillDesc 0 0  cfipython 0 0
+###pramCC: searchOpt  inCC: 101  inFillDesc: 0 
+101:    m_searchOpt = false;
+103:      m_searchOpt = regPSet.getParameter<bool>("searchOpt");
+153:    desc.add<bool>("searchOpt", false);
+242:                                                                           m_searchOpt));
+272:  bool m_searchOpt;
+--- not found in filldesc cc
+###FinalCheck fillDesc 0 redundent 0  cfipython 0 redeudent 0
 ***********************************************************************
-#TargetCC: /RecoTracker/TrackProducer/interface/TrackProducerAlgorithm.h     #Function: TrackProducerAlgorithm
+#targetCC: /RecoTracker/TrackProducer/interface/TrackProducerAlgorithm.h     #function: TrackProducerAlgorithm
 61:    geometricInnerState_ = (conf.exists("GeometricInnerState") ? conf.getParameter<bool>("GeometricInnerState") : true);
 62:    if (conf.exists("reMatchSplitHits"))
 64:    if (conf.exists("usePropagatorForPCA"))
-###pramCC: GeometricInnerState  lineCC:  lineFill: 0
-###pramCC: reMatchSplitHits  lineCC: 59 lineFill: 0
-###pramCC: usePropagatorForPCA  lineCC: 60 lineFill: 0
-### FinalCheck ccfillDesc 0 0  cfipython 0 0
+###pramCC: GeometricInnerState  inCC:   inFillDesc: 0 
+
+--- not found in filldesc cc
+###pramCC: reMatchSplitHits  inCC: 59  inFillDesc: 0 
+59:        reMatchSplitHits_(false),
+63:      reMatchSplitHits_ = conf.getParameter<bool>("reMatchSplitHits");
+142:  bool reMatchSplitHits_;
+--- not found in filldesc cc
+###pramCC: usePropagatorForPCA  inCC: 60  inFillDesc: 0 
+60:        usePropagatorForPCA_(false) {
+65:      usePropagatorForPCA_ = conf.getParameter<bool>("usePropagatorForPCA");
+144:  bool usePropagatorForPCA_;
+--- not found in filldesc cc
+###FinalCheck fillDesc 0 redundent 0  cfipython 0 redeudent 0
 ***********************************************************************
-#TargetCC: /RecoTracker/TrackProducer/interface/TrackProducerAlgorithm.h     #Function: TrackProducerAlgorithm
-61:    geometricInnerState_ = (conf.exists("GeometricInnerState") ? conf.getParameter<bool>("GeometricInnerState") : true);
-62:    if (conf.exists("reMatchSplitHits"))
-64:    if (conf.exists("usePropagatorForPCA"))
-###pramCC: GeometricInnerState  lineCC:  lineFill: 0
-###pramCC: reMatchSplitHits  lineCC: 59 lineFill: 0
-###pramCC: usePropagatorForPCA  lineCC: 60 lineFill: 0
-### FinalCheck ccfillDesc 0 0  cfipython 0 0
-***********************************************************************
-#TargetCC: /RecoTracker/TrackProducer/interface/TrackProducerAlgorithm.h     #Function: TrackProducerAlgorithm
-61:    geometricInnerState_ = (conf.exists("GeometricInnerState") ? conf.getParameter<bool>("GeometricInnerState") : true);
-62:    if (conf.exists("reMatchSplitHits"))
-64:    if (conf.exists("usePropagatorForPCA"))
-###pramCC: GeometricInnerState  lineCC:  lineFill: 0
-###pramCC: reMatchSplitHits  lineCC: 59 lineFill: 0
-###pramCC: usePropagatorForPCA  lineCC: 60 lineFill: 0
-### FinalCheck ccfillDesc 0 0  cfipython 0 0
-***********************************************************************
-#TargetCC: /RecoTracker/TrackProducer/interface/TrackProducerAlgorithm.h     #Function: TrackProducerAlgorithm
-61:    geometricInnerState_ = (conf.exists("GeometricInnerState") ? conf.getParameter<bool>("GeometricInnerState") : true);
-62:    if (conf.exists("reMatchSplitHits"))
-64:    if (conf.exists("usePropagatorForPCA"))
-###pramCC: GeometricInnerState  lineCC:  lineFill: 0
-###pramCC: reMatchSplitHits  lineCC: 59 lineFill: 0
-###pramCC: usePropagatorForPCA  lineCC: 60 lineFill: 0
-### FinalCheck ccfillDesc 0 0  cfipython 0 0
-***********************************************************************
-#TargetCC: /RecoTracker/TrackProducer/interface/TrackProducerAlgorithm.h     #Function: TrackProducerAlgorithm
-61:    geometricInnerState_ = (conf.exists("GeometricInnerState") ? conf.getParameter<bool>("GeometricInnerState") : true);
-62:    if (conf.exists("reMatchSplitHits"))
-64:    if (conf.exists("usePropagatorForPCA"))
-###pramCC: GeometricInnerState  lineCC:  lineFill: 0
-###pramCC: reMatchSplitHits  lineCC: 59 lineFill: 0
-###pramCC: usePropagatorForPCA  lineCC: 60 lineFill: 0
-### FinalCheck ccfillDesc 0 0  cfipython 0 0
-***********************************************************************
-#TargetCC: /RecoTracker/TrackProducer/interface/TrackProducerAlgorithm.h     #Function: TrackProducerAlgorithm
-61:    geometricInnerState_ = (conf.exists("GeometricInnerState") ? conf.getParameter<bool>("GeometricInnerState") : true);
-62:    if (conf.exists("reMatchSplitHits"))
-64:    if (conf.exists("usePropagatorForPCA"))
-###pramCC: GeometricInnerState  lineCC:  lineFill: 0
-###pramCC: reMatchSplitHits  lineCC: 59 lineFill: 0
-###pramCC: usePropagatorForPCA  lineCC: 60 lineFill: 0
-### FinalCheck ccfillDesc 0 0  cfipython 0 0
-***********************************************************************
-#TargetCC: /RecoTracker/TrackProducer/interface/TrackProducerBase.icc     #Function: initTrackProducerBase
+#targetCC: /RecoTracker/TrackProducer/interface/TrackProducerBase.icc     #function: initTrackProducerBase
 57:  if (conf_.exists("useSimpleMF"))
 80:  if (conf_.exists("NavigationSchool"))
-###pramCC: useSimpleMF  lineCC: 53 lineFill: 0
-###pramCC: NavigationSchool  lineCC: 22 lineFill: 0
-### FinalCheck ccfillDesc 0 0  cfipython 0 0
+###pramCC: useSimpleMF  inCC: 53  inFillDesc: 0 
+53:  // we should get rid of the boolean parameter useSimpleMF,
+56:  bool useSimpleMF = false;
+58:    useSimpleMF = conf_.getParameter<bool>("useSimpleMF");
+60:  if (useSimpleMF) {
+--- not found in filldesc cc
+###pramCC: NavigationSchool  inCC: 22  inFillDesc: 0 
+22:#include "TrackingTools/DetLayers/interface/NavigationSchool.h"
+23:#include "RecoTracker/Record/interface/NavigationSchoolRecord.h"
+75:  // get also the measurementTracker and the NavigationSchool
+79:  std::string theNavigationSchool = "";
+81:    theNavigationSchool = conf_.getParameter<std::string>("NavigationSchool");
+84:        << " NavigationSchool parameter not set. secondary hit pattern will not be filled.";
+85:  if (!theNavigationSchool.empty()) {
+87:    schoolSrc_ = cc.esConsumes(edm::ESInputTag("", theNavigationSchool));
+137:  // get also the measurementTracker and the NavigationSchool
+148:    theSchool = edm::ESHandle<NavigationSchool>();    //put an invalid handle
+--- not found in filldesc cc
+###FinalCheck fillDesc 0 redundent 0  cfipython 0 redeudent 0
 ***********************************************************************
-#TargetCC: /RecoTracker/TrackProducer/interface/TrackProducerBase.icc     #Function: initTrackProducerBase
-57:  if (conf_.exists("useSimpleMF"))
-80:  if (conf_.exists("NavigationSchool"))
-###pramCC: useSimpleMF  lineCC: 53 lineFill: 0
-###pramCC: NavigationSchool  lineCC: 22 lineFill: 0
-### FinalCheck ccfillDesc 0 0  cfipython 0 0
-***********************************************************************
-#TargetCC: /RecoTracker/TrackProducer/plugins/TrackProducer.cc     #Function: TrackProducer
+#targetCC: /RecoTracker/TrackProducer/plugins/TrackProducer.cc     #function: TrackProducer
+#cfipython: ../cfipython/slc7_amd64_gcc900/HLTrigger/Muon/hltScoutingTrackProducer_cfi.py
 27:  if (iConfig.exists("clusterRemovalInfo")) {
-###Cfipython : HLTrigger/Muon/hltScoutingTrackProducer_cfi.py hltScoutingTrackProducer cms.EDProducer HLTScoutingTrackProducer
-RecoPPS/Local/ctppsPixelLocalTracks_cfi.py ctppsPixelLocalTracks cms.EDProducer CTPPSPixelLocalTrackProducer
-RecoPixelVertexing/PixelTrackFitting/pixelTracks_cfi.py pixelTracks cms.EDProducer PixelTrackProducer
-RecoPixelVertexing/PixelTrackFitting/pixelTrackProducerFromSoA_cfi.py pixelTrackProducerFromSoA cms.EDProducer PixelTrackProducerFromSoA
-RecoTauTag/HLTProducers/hltVertexFromTrackProducer_cfi.py hltVertexFromTrackProducer cms.EDProducer VertexFromTrackProducer
-RecoTracker/TrackProducer/trackExtraRekeyer_cfi.py trackExtraRekeyer cms.EDProducer TrackExtraRekeyer
-RecoTracker/TrackProducer/trackProducerFromPatMuons_cfi.py trackProducerFromPatMuons cms.EDProducer TrackProducerFromPatMuons
-RecoTracker/TrackProducer/gsfTrackProducer_cfi.py gsfTrackProducer cms.EDProducer GsfTrackProducer
-###pramCC: clusterRemovalInfo  lineCC: 28 lineFill: 0
-### FinalCheck ccfillDesc 0 0  cfipython 1 0
-==> Please Check and Update /RecoTracker/TrackProducer/plugins/TrackProducer.cc !!!  0 0 1 0 ../cfipython/slc7_amd64_gcc900/HLTrigger/Muon/hltScoutingTrackProducer_cfi.py
-###################################################################3
+###pramCC: clusterRemovalInfo  inCC: 28  inFillDesc: 0 
+28:    edm::InputTag tag = iConfig.getParameter<edm::InputTag>("clusterRemovalInfo");
+--- not found in filldesc cc
+--- not found in cfi
+###FinalCheck fillDesc 0 redundent 0  cfipython 1 redeudent 0
+>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+Please check /RecoTracker/TrackProducer/plugins/TrackProducer.cc ! 0 0 1 0 ../cfipython/slc7_amd64_gcc900/HLTrigger/Muon/hltScoutingTrackProducer_cfi.py
+>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>

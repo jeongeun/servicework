@@ -1,20 +1,21 @@
 ************RecoLocalTracker****************
 ***********************************************************************
-#TargetCC: /RecoLocalTracker/SiStripRecHitConverter/plugins/StripCPEESProducer.cc     #Function: StripCPEESProducer
+#targetCC: /RecoLocalTracker/SiStripRecHitConverter/plugins/StripCPEESProducer.cc     #function: StripCPEESProducer
 41:  if (!p.exists("ComponentType"))
 57:  parametersPSet = (p.exists("parameters") ? p.getParameter<edm::ParameterSet>("parameters") : p);
-###pramCC: ComponentType  lineCC: 42 lineFill: 0
-###pramCC: parameters  lineCC: 28 lineFill: 0
-### FinalCheck ccfillDesc 0 0  cfipython 0 0
+###pramCC: ComponentType  inCC: 42  inFillDesc: 0 
+42:    edm::LogWarning("StripCPEESProducer") << " the CPE producer should contain a ComponentType, probably identical to "
+46:    type = p.getParameter<std::string>("ComponentType");
+--- not found in filldesc cc
+###pramCC: parameters  inCC: 28  inFillDesc: 0 
+28:  edm::ParameterSet parametersPSet;
+80:          parametersPSet, magfield, pDD, lorentzAngle, backPlaneCorrection, confObj, latency);
+85:          parametersPSet, magfield, pDD, lorentzAngle, backPlaneCorrection, confObj, latency);
+90:          parametersPSet, magfield, pDD, lorentzAngle, backPlaneCorrection, confObj, latency);
+--- not found in filldesc cc
+###FinalCheck fillDesc 0 redundent 0  cfipython 0 redeudent 0
 ***********************************************************************
-#TargetCC: /RecoLocalTracker/SiStripRecHitConverter/plugins/StripCPEESProducer.cc     #Function: StripCPEESProducer
-41:  if (!p.exists("ComponentType"))
-57:  parametersPSet = (p.exists("parameters") ? p.getParameter<edm::ParameterSet>("parameters") : p);
-###pramCC: ComponentType  lineCC: 42 lineFill: 0
-###pramCC: parameters  lineCC: 28 lineFill: 0
-### FinalCheck ccfillDesc 0 0  cfipython 0 0
-***********************************************************************
-#TargetCC: /RecoLocalTracker/SiStripRecHitConverter/src/StripCPEfromTrackAngle.cc     #Function: StripCPEfromTrackAngle
+#targetCC: /RecoLocalTracker/SiStripRecHitConverter/src/StripCPEfromTrackAngle.cc     #function: StripCPEfromTrackAngle
 15:      useLegacyError(conf.existsAs<bool>("useLegacyError") ? conf.getParameter<bool>("useLegacyError") : true),
 16:      maxChgOneMIP(conf.existsAs<float>("maxChgOneMIP") ? conf.getParameter<double>("maxChgOneMIP") : -6000.),
 18:  mLC_P[0] = conf.existsAs<double>("mLC_P0") ? conf.getParameter<double>("mLC_P0") : -.326;
@@ -28,167 +29,50 @@
 27:  mHC_P[SiStripDetId::TOB - 3][1] = conf.existsAs<double>("mTOB_P1") ? conf.getParameter<double>("mTOB_P1") : .433;
 28:  mHC_P[SiStripDetId::TEC - 3][0] = conf.existsAs<double>("mTEC_P0") ? conf.getParameter<double>("mTEC_P0") : -1.885;
 29:  mHC_P[SiStripDetId::TEC - 3][1] = conf.existsAs<double>("mTEC_P1") ? conf.getParameter<double>("mTEC_P1") : .471;
-###pramCC: useLegacyError  lineCC: 17 lineFill: 0
-###pramCC: maxChgOneMIP  lineCC: 17 lineFill: 0
-###pramCC: mLC_P0  lineCC:  lineFill: 0
-###pramCC: mLC_P1  lineCC:  lineFill: 0
-###pramCC: mLC_P2  lineCC:  lineFill: 0
-###pramCC: mTIB_P0  lineCC:  lineFill: 0
-###pramCC: mTIB_P1  lineCC:  lineFill: 0
-###pramCC: mTID_P0  lineCC:  lineFill: 0
-###pramCC: mTID_P1  lineCC:  lineFill: 0
-###pramCC: mTOB_P0  lineCC:  lineFill: 0
-###pramCC: mTOB_P1  lineCC:  lineFill: 0
-###pramCC: mTEC_P0  lineCC:  lineFill: 0
-###pramCC: mTEC_P1  lineCC:  lineFill: 0
-### FinalCheck ccfillDesc 0 0  cfipython 0 0
+###pramCC: useLegacyError  inCC: 17  inFillDesc: 0 
+17:      m_algo(useLegacyError ? Algo::legacy : (maxChgOneMIP < 0 ? Algo::mergeCK : Algo::chargeCK)) {
+--- not found in filldesc cc
+###pramCC: maxChgOneMIP  inCC: 17  inFillDesc: 0 
+17:      m_algo(useLegacyError ? Algo::legacy : (maxChgOneMIP < 0 ? Algo::mergeCK : Algo::chargeCK)) {
+73:        auto uerr2 = dQdx > maxChgOneMIP ? legacyStripErrorSquared(N, afp) : stripErrorSquared(N, afp, loc);
+109:      uerr2 = dQdx > maxChgOneMIP ? legacyStripErrorSquared(N, afp) : stripErrorSquared(N, afp, loc);
+--- not found in filldesc cc
+###pramCC: mLC_P0  inCC:   inFillDesc: 0 
+
+--- not found in filldesc cc
+###pramCC: mLC_P1  inCC:   inFillDesc: 0 
+
+--- not found in filldesc cc
+###pramCC: mLC_P2  inCC:   inFillDesc: 0 
+
+--- not found in filldesc cc
+###pramCC: mTIB_P0  inCC:   inFillDesc: 0 
+
+--- not found in filldesc cc
+###pramCC: mTIB_P1  inCC:   inFillDesc: 0 
+
+--- not found in filldesc cc
+###pramCC: mTID_P0  inCC:   inFillDesc: 0 
+
+--- not found in filldesc cc
+###pramCC: mTID_P1  inCC:   inFillDesc: 0 
+
+--- not found in filldesc cc
+###pramCC: mTOB_P0  inCC:   inFillDesc: 0 
+
+--- not found in filldesc cc
+###pramCC: mTOB_P1  inCC:   inFillDesc: 0 
+
+--- not found in filldesc cc
+###pramCC: mTEC_P0  inCC:   inFillDesc: 0 
+
+--- not found in filldesc cc
+###pramCC: mTEC_P1  inCC:   inFillDesc: 0 
+
+--- not found in filldesc cc
+###FinalCheck fillDesc 0 redundent 0  cfipython 0 redeudent 0
 ***********************************************************************
-#TargetCC: /RecoLocalTracker/SiStripRecHitConverter/src/StripCPEfromTrackAngle.cc     #Function: StripCPEfromTrackAngle
-15:      useLegacyError(conf.existsAs<bool>("useLegacyError") ? conf.getParameter<bool>("useLegacyError") : true),
-16:      maxChgOneMIP(conf.existsAs<float>("maxChgOneMIP") ? conf.getParameter<double>("maxChgOneMIP") : -6000.),
-18:  mLC_P[0] = conf.existsAs<double>("mLC_P0") ? conf.getParameter<double>("mLC_P0") : -.326;
-19:  mLC_P[1] = conf.existsAs<double>("mLC_P1") ? conf.getParameter<double>("mLC_P1") : .618;
-20:  mLC_P[2] = conf.existsAs<double>("mLC_P2") ? conf.getParameter<double>("mLC_P2") : .300;
-22:  mHC_P[SiStripDetId::TIB - 3][0] = conf.existsAs<double>("mTIB_P0") ? conf.getParameter<double>("mTIB_P0") : -.742;
-23:  mHC_P[SiStripDetId::TIB - 3][1] = conf.existsAs<double>("mTIB_P1") ? conf.getParameter<double>("mTIB_P1") : .202;
-24:  mHC_P[SiStripDetId::TID - 3][0] = conf.existsAs<double>("mTID_P0") ? conf.getParameter<double>("mTID_P0") : -1.026;
-25:  mHC_P[SiStripDetId::TID - 3][1] = conf.existsAs<double>("mTID_P1") ? conf.getParameter<double>("mTID_P1") : .253;
-26:  mHC_P[SiStripDetId::TOB - 3][0] = conf.existsAs<double>("mTOB_P0") ? conf.getParameter<double>("mTOB_P0") : -1.427;
-27:  mHC_P[SiStripDetId::TOB - 3][1] = conf.existsAs<double>("mTOB_P1") ? conf.getParameter<double>("mTOB_P1") : .433;
-28:  mHC_P[SiStripDetId::TEC - 3][0] = conf.existsAs<double>("mTEC_P0") ? conf.getParameter<double>("mTEC_P0") : -1.885;
-29:  mHC_P[SiStripDetId::TEC - 3][1] = conf.existsAs<double>("mTEC_P1") ? conf.getParameter<double>("mTEC_P1") : .471;
-###pramCC: useLegacyError  lineCC: 17 lineFill: 0
-###pramCC: maxChgOneMIP  lineCC: 17 lineFill: 0
-###pramCC: mLC_P0  lineCC:  lineFill: 0
-###pramCC: mLC_P1  lineCC:  lineFill: 0
-###pramCC: mLC_P2  lineCC:  lineFill: 0
-###pramCC: mTIB_P0  lineCC:  lineFill: 0
-###pramCC: mTIB_P1  lineCC:  lineFill: 0
-###pramCC: mTID_P0  lineCC:  lineFill: 0
-###pramCC: mTID_P1  lineCC:  lineFill: 0
-###pramCC: mTOB_P0  lineCC:  lineFill: 0
-###pramCC: mTOB_P1  lineCC:  lineFill: 0
-###pramCC: mTEC_P0  lineCC:  lineFill: 0
-###pramCC: mTEC_P1  lineCC:  lineFill: 0
-### FinalCheck ccfillDesc 0 0  cfipython 0 0
-***********************************************************************
-#TargetCC: /RecoLocalTracker/SiStripRecHitConverter/src/StripCPEfromTrackAngle.cc     #Function: StripCPEfromTrackAngle
-15:      useLegacyError(conf.existsAs<bool>("useLegacyError") ? conf.getParameter<bool>("useLegacyError") : true),
-16:      maxChgOneMIP(conf.existsAs<float>("maxChgOneMIP") ? conf.getParameter<double>("maxChgOneMIP") : -6000.),
-18:  mLC_P[0] = conf.existsAs<double>("mLC_P0") ? conf.getParameter<double>("mLC_P0") : -.326;
-19:  mLC_P[1] = conf.existsAs<double>("mLC_P1") ? conf.getParameter<double>("mLC_P1") : .618;
-20:  mLC_P[2] = conf.existsAs<double>("mLC_P2") ? conf.getParameter<double>("mLC_P2") : .300;
-22:  mHC_P[SiStripDetId::TIB - 3][0] = conf.existsAs<double>("mTIB_P0") ? conf.getParameter<double>("mTIB_P0") : -.742;
-23:  mHC_P[SiStripDetId::TIB - 3][1] = conf.existsAs<double>("mTIB_P1") ? conf.getParameter<double>("mTIB_P1") : .202;
-24:  mHC_P[SiStripDetId::TID - 3][0] = conf.existsAs<double>("mTID_P0") ? conf.getParameter<double>("mTID_P0") : -1.026;
-25:  mHC_P[SiStripDetId::TID - 3][1] = conf.existsAs<double>("mTID_P1") ? conf.getParameter<double>("mTID_P1") : .253;
-26:  mHC_P[SiStripDetId::TOB - 3][0] = conf.existsAs<double>("mTOB_P0") ? conf.getParameter<double>("mTOB_P0") : -1.427;
-27:  mHC_P[SiStripDetId::TOB - 3][1] = conf.existsAs<double>("mTOB_P1") ? conf.getParameter<double>("mTOB_P1") : .433;
-28:  mHC_P[SiStripDetId::TEC - 3][0] = conf.existsAs<double>("mTEC_P0") ? conf.getParameter<double>("mTEC_P0") : -1.885;
-29:  mHC_P[SiStripDetId::TEC - 3][1] = conf.existsAs<double>("mTEC_P1") ? conf.getParameter<double>("mTEC_P1") : .471;
-###pramCC: useLegacyError  lineCC: 17 lineFill: 0
-###pramCC: maxChgOneMIP  lineCC: 17 lineFill: 0
-###pramCC: mLC_P0  lineCC:  lineFill: 0
-###pramCC: mLC_P1  lineCC:  lineFill: 0
-###pramCC: mLC_P2  lineCC:  lineFill: 0
-###pramCC: mTIB_P0  lineCC:  lineFill: 0
-###pramCC: mTIB_P1  lineCC:  lineFill: 0
-###pramCC: mTID_P0  lineCC:  lineFill: 0
-###pramCC: mTID_P1  lineCC:  lineFill: 0
-###pramCC: mTOB_P0  lineCC:  lineFill: 0
-###pramCC: mTOB_P1  lineCC:  lineFill: 0
-###pramCC: mTEC_P0  lineCC:  lineFill: 0
-###pramCC: mTEC_P1  lineCC:  lineFill: 0
-### FinalCheck ccfillDesc 0 0  cfipython 0 0
-***********************************************************************
-#TargetCC: /RecoLocalTracker/SiStripRecHitConverter/src/StripCPEfromTrackAngle.cc     #Function: StripCPEfromTrackAngle
-15:      useLegacyError(conf.existsAs<bool>("useLegacyError") ? conf.getParameter<bool>("useLegacyError") : true),
-16:      maxChgOneMIP(conf.existsAs<float>("maxChgOneMIP") ? conf.getParameter<double>("maxChgOneMIP") : -6000.),
-18:  mLC_P[0] = conf.existsAs<double>("mLC_P0") ? conf.getParameter<double>("mLC_P0") : -.326;
-19:  mLC_P[1] = conf.existsAs<double>("mLC_P1") ? conf.getParameter<double>("mLC_P1") : .618;
-20:  mLC_P[2] = conf.existsAs<double>("mLC_P2") ? conf.getParameter<double>("mLC_P2") : .300;
-22:  mHC_P[SiStripDetId::TIB - 3][0] = conf.existsAs<double>("mTIB_P0") ? conf.getParameter<double>("mTIB_P0") : -.742;
-23:  mHC_P[SiStripDetId::TIB - 3][1] = conf.existsAs<double>("mTIB_P1") ? conf.getParameter<double>("mTIB_P1") : .202;
-24:  mHC_P[SiStripDetId::TID - 3][0] = conf.existsAs<double>("mTID_P0") ? conf.getParameter<double>("mTID_P0") : -1.026;
-25:  mHC_P[SiStripDetId::TID - 3][1] = conf.existsAs<double>("mTID_P1") ? conf.getParameter<double>("mTID_P1") : .253;
-26:  mHC_P[SiStripDetId::TOB - 3][0] = conf.existsAs<double>("mTOB_P0") ? conf.getParameter<double>("mTOB_P0") : -1.427;
-27:  mHC_P[SiStripDetId::TOB - 3][1] = conf.existsAs<double>("mTOB_P1") ? conf.getParameter<double>("mTOB_P1") : .433;
-28:  mHC_P[SiStripDetId::TEC - 3][0] = conf.existsAs<double>("mTEC_P0") ? conf.getParameter<double>("mTEC_P0") : -1.885;
-29:  mHC_P[SiStripDetId::TEC - 3][1] = conf.existsAs<double>("mTEC_P1") ? conf.getParameter<double>("mTEC_P1") : .471;
-###pramCC: useLegacyError  lineCC: 17 lineFill: 0
-###pramCC: maxChgOneMIP  lineCC: 17 lineFill: 0
-###pramCC: mLC_P0  lineCC:  lineFill: 0
-###pramCC: mLC_P1  lineCC:  lineFill: 0
-###pramCC: mLC_P2  lineCC:  lineFill: 0
-###pramCC: mTIB_P0  lineCC:  lineFill: 0
-###pramCC: mTIB_P1  lineCC:  lineFill: 0
-###pramCC: mTID_P0  lineCC:  lineFill: 0
-###pramCC: mTID_P1  lineCC:  lineFill: 0
-###pramCC: mTOB_P0  lineCC:  lineFill: 0
-###pramCC: mTOB_P1  lineCC:  lineFill: 0
-###pramCC: mTEC_P0  lineCC:  lineFill: 0
-###pramCC: mTEC_P1  lineCC:  lineFill: 0
-### FinalCheck ccfillDesc 0 0  cfipython 0 0
-***********************************************************************
-#TargetCC: /RecoLocalTracker/SiStripRecHitConverter/src/StripCPEfromTrackAngle.cc     #Function: StripCPEfromTrackAngle
-15:      useLegacyError(conf.existsAs<bool>("useLegacyError") ? conf.getParameter<bool>("useLegacyError") : true),
-16:      maxChgOneMIP(conf.existsAs<float>("maxChgOneMIP") ? conf.getParameter<double>("maxChgOneMIP") : -6000.),
-18:  mLC_P[0] = conf.existsAs<double>("mLC_P0") ? conf.getParameter<double>("mLC_P0") : -.326;
-19:  mLC_P[1] = conf.existsAs<double>("mLC_P1") ? conf.getParameter<double>("mLC_P1") : .618;
-20:  mLC_P[2] = conf.existsAs<double>("mLC_P2") ? conf.getParameter<double>("mLC_P2") : .300;
-22:  mHC_P[SiStripDetId::TIB - 3][0] = conf.existsAs<double>("mTIB_P0") ? conf.getParameter<double>("mTIB_P0") : -.742;
-23:  mHC_P[SiStripDetId::TIB - 3][1] = conf.existsAs<double>("mTIB_P1") ? conf.getParameter<double>("mTIB_P1") : .202;
-24:  mHC_P[SiStripDetId::TID - 3][0] = conf.existsAs<double>("mTID_P0") ? conf.getParameter<double>("mTID_P0") : -1.026;
-25:  mHC_P[SiStripDetId::TID - 3][1] = conf.existsAs<double>("mTID_P1") ? conf.getParameter<double>("mTID_P1") : .253;
-26:  mHC_P[SiStripDetId::TOB - 3][0] = conf.existsAs<double>("mTOB_P0") ? conf.getParameter<double>("mTOB_P0") : -1.427;
-27:  mHC_P[SiStripDetId::TOB - 3][1] = conf.existsAs<double>("mTOB_P1") ? conf.getParameter<double>("mTOB_P1") : .433;
-28:  mHC_P[SiStripDetId::TEC - 3][0] = conf.existsAs<double>("mTEC_P0") ? conf.getParameter<double>("mTEC_P0") : -1.885;
-29:  mHC_P[SiStripDetId::TEC - 3][1] = conf.existsAs<double>("mTEC_P1") ? conf.getParameter<double>("mTEC_P1") : .471;
-###pramCC: useLegacyError  lineCC: 17 lineFill: 0
-###pramCC: maxChgOneMIP  lineCC: 17 lineFill: 0
-###pramCC: mLC_P0  lineCC:  lineFill: 0
-###pramCC: mLC_P1  lineCC:  lineFill: 0
-###pramCC: mLC_P2  lineCC:  lineFill: 0
-###pramCC: mTIB_P0  lineCC:  lineFill: 0
-###pramCC: mTIB_P1  lineCC:  lineFill: 0
-###pramCC: mTID_P0  lineCC:  lineFill: 0
-###pramCC: mTID_P1  lineCC:  lineFill: 0
-###pramCC: mTOB_P0  lineCC:  lineFill: 0
-###pramCC: mTOB_P1  lineCC:  lineFill: 0
-###pramCC: mTEC_P0  lineCC:  lineFill: 0
-###pramCC: mTEC_P1  lineCC:  lineFill: 0
-### FinalCheck ccfillDesc 0 0  cfipython 0 0
-***********************************************************************
-#TargetCC: /RecoLocalTracker/SiStripRecHitConverter/src/StripCPEfromTrackAngle.cc     #Function: StripCPEfromTrackAngle
-15:      useLegacyError(conf.existsAs<bool>("useLegacyError") ? conf.getParameter<bool>("useLegacyError") : true),
-16:      maxChgOneMIP(conf.existsAs<float>("maxChgOneMIP") ? conf.getParameter<double>("maxChgOneMIP") : -6000.),
-18:  mLC_P[0] = conf.existsAs<double>("mLC_P0") ? conf.getParameter<double>("mLC_P0") : -.326;
-19:  mLC_P[1] = conf.existsAs<double>("mLC_P1") ? conf.getParameter<double>("mLC_P1") : .618;
-20:  mLC_P[2] = conf.existsAs<double>("mLC_P2") ? conf.getParameter<double>("mLC_P2") : .300;
-22:  mHC_P[SiStripDetId::TIB - 3][0] = conf.existsAs<double>("mTIB_P0") ? conf.getParameter<double>("mTIB_P0") : -.742;
-23:  mHC_P[SiStripDetId::TIB - 3][1] = conf.existsAs<double>("mTIB_P1") ? conf.getParameter<double>("mTIB_P1") : .202;
-24:  mHC_P[SiStripDetId::TID - 3][0] = conf.existsAs<double>("mTID_P0") ? conf.getParameter<double>("mTID_P0") : -1.026;
-25:  mHC_P[SiStripDetId::TID - 3][1] = conf.existsAs<double>("mTID_P1") ? conf.getParameter<double>("mTID_P1") : .253;
-26:  mHC_P[SiStripDetId::TOB - 3][0] = conf.existsAs<double>("mTOB_P0") ? conf.getParameter<double>("mTOB_P0") : -1.427;
-27:  mHC_P[SiStripDetId::TOB - 3][1] = conf.existsAs<double>("mTOB_P1") ? conf.getParameter<double>("mTOB_P1") : .433;
-28:  mHC_P[SiStripDetId::TEC - 3][0] = conf.existsAs<double>("mTEC_P0") ? conf.getParameter<double>("mTEC_P0") : -1.885;
-29:  mHC_P[SiStripDetId::TEC - 3][1] = conf.existsAs<double>("mTEC_P1") ? conf.getParameter<double>("mTEC_P1") : .471;
-###pramCC: useLegacyError  lineCC: 17 lineFill: 0
-###pramCC: maxChgOneMIP  lineCC: 17 lineFill: 0
-###pramCC: mLC_P0  lineCC:  lineFill: 0
-###pramCC: mLC_P1  lineCC:  lineFill: 0
-###pramCC: mLC_P2  lineCC:  lineFill: 0
-###pramCC: mTIB_P0  lineCC:  lineFill: 0
-###pramCC: mTIB_P1  lineCC:  lineFill: 0
-###pramCC: mTID_P0  lineCC:  lineFill: 0
-###pramCC: mTID_P1  lineCC:  lineFill: 0
-###pramCC: mTOB_P0  lineCC:  lineFill: 0
-###pramCC: mTOB_P1  lineCC:  lineFill: 0
-###pramCC: mTEC_P0  lineCC:  lineFill: 0
-###pramCC: mTEC_P1  lineCC:  lineFill: 0
-### FinalCheck ccfillDesc 0 0  cfipython 0 0
-***********************************************************************
-#TargetCC: /RecoLocalTracker/SubCollectionProducers/src/HITrackClusterRemover.cc     #Function: HITrackClusterRemover
+#targetCC: /RecoLocalTracker/SubCollectionProducers/src/HITrackClusterRemover.cc     #function: HITrackClusterRemover
 53:          usesCharge_(iConfig.exists("maxCharge")),
 54:          usesSize_(iConfig.exists("maxSize")),
 55:          cutOnPixelCharge_(iConfig.exists("minGoodPixelCharge")),
@@ -204,24 +88,186 @@
 163:  if (iConfig.exists("clusterLessSolution"))
 215:  if (iConfig.exists("TrackQuality")) {
 219:        iConfig.existsAs<int>("minNumberOfLayersWithMeasBeforeFiltering")
-###pramCC: maxCharge  lineCC: 58 lineFill: 0
-###pramCC: maxSize  lineCC: 61 lineFill: 0
-###pramCC: minGoodPixelCharge  lineCC: 59 lineFill: 0
-###pramCC: minGoodStripCharge  lineCC: 60 lineFill: 0
-###pramCC: if (iConfig.exists(name)) {  lineCC: .//RecoLocalTracker/SubCollectionProducers/src/HITrackClusterRemover.cc lineFill: 0
-###pramCC: trajectories  lineCC: 225 lineFill: 0
-###pramCC: doStrip  lineCC: 69 lineFill: 0
-###pramCC: doPixel  lineCC: 69 lineFill: 0
-###pramCC: oldClusterRemovalInfo  lineCC: 160 lineFill: 0
-###pramCC: doStripChargeCheck  lineCC: 108 lineFill: 0
-###pramCC: doPixelChargeCheck  lineCC: 108 lineFill: 0
-###pramCC: overrideTrkQuals  lineCC: 79 lineFill: 0
-###pramCC: clusterLessSolution  lineCC: 164 lineFill: 0
-###pramCC: TrackQuality  lineCC: 112 lineFill: 0
-###pramCC: minNumberOfLayersWithMeasBeforeFiltering  lineCC: 111 lineFill: 0
-### FinalCheck ccfillDesc 0 0  cfipython 0 0
+###pramCC: maxCharge  inCC: 58  inFillDesc: 0 
+58:          maxCharge_(usesCharge_ ? iConfig.getParameter<double>("maxCharge") : 0),
+63:    float maxChi2_, maxCharge_, minGoodPixelCharge_, minGoodStripCharge_;
+--- not found in filldesc cc
+###pramCC: maxSize  inCC: 61  inFillDesc: 0 
+61:          maxSize_(usesSize_ ? iConfig.getParameter<uint32_t>("maxSize") : 0) {}
+64:    size_t maxSize_;
+319:  if (pblocks_[subdet - 1].usesSize_ && (cluster->amplitudes().size() > pblocks_[subdet - 1].maxSize_))
+363:    if (pblocks_[subdet - 1].usesSize_ && (cluster->pixels().size() > pblocks_[subdet - 1].maxSize_))
+--- not found in filldesc cc
+###pramCC: minGoodPixelCharge  inCC: 59  inFillDesc: 0 
+59:          minGoodPixelCharge_(cutOnPixelCharge_ ? iConfig.getParameter<double>("minGoodPixelCharge") : 0),
+63:    float maxChi2_, maxCharge_, minGoodPixelCharge_, minGoodStripCharge_;
+--- not found in filldesc cc
+###pramCC: minGoodStripCharge  inCC: 60  inFillDesc: 0 
+60:          minGoodStripCharge_(cutOnStripCharge_ ? iConfig.getParameter<double>("minGoodStripCharge") : 0),
+63:    float maxChi2_, maxCharge_, minGoodPixelCharge_, minGoodStripCharge_;
+323:        (cluster->charge() > (pblocks_[subdet - 1].minGoodStripCharge_ * sensorThickness(detid))))
+--- not found in filldesc cc
+###pramCC: if (iConfig.exists(name)) {  inCC: .//RecoLocalTracker/SubCollectionProducers/src/HITrackClusterRemover.cc  inFillDesc: 0 
+.//RecoLocalTracker/SubCollectionProducers/src/HITrackClusterRemover.cc:127:    if (id1 == -1) {
+.//RecoLocalTracker/SubCollectionProducers/src/HITrackClusterRemover.cc:131:      if (id2 != -1)
+.//RecoLocalTracker/SubCollectionProducers/src/HITrackClusterRemover.cc:133:      if (id3 != -1)
+.//RecoLocalTracker/SubCollectionProducers/src/HITrackClusterRemover.cc:135:      if (id4 != -1)
+.//RecoLocalTracker/SubCollectionProducers/src/HITrackClusterRemover.cc:137:      if (id5 != -1)
+.//RecoLocalTracker/SubCollectionProducers/src/HITrackClusterRemover.cc:139:      if (id6 != -1)
+.//RecoLocalTracker/SubCollectionProducers/src/HITrackClusterRemover.cc:165:  if ((doPixelChargeCheck_ && !doPixel_) || (doStripChargeCheck_ && !doStrip_))
+.//RecoLocalTracker/SubCollectionProducers/src/HITrackClusterRemover.cc:168:  if (doPixelChargeCheck_)
+.//RecoLocalTracker/SubCollectionProducers/src/HITrackClusterRemover.cc:172:  if (doPixel_ && clusterWasteSolution_)
+.//RecoLocalTracker/SubCollectionProducers/src/HITrackClusterRemover.cc:174:  if (doStrip_ && clusterWasteSolution_)
+.//RecoLocalTracker/SubCollectionProducers/src/HITrackClusterRemover.cc:176:  if (clusterWasteSolution_)
+.//RecoLocalTracker/SubCollectionProducers/src/HITrackClusterRemover.cc:183:  if (doPixel_) {
+.//RecoLocalTracker/SubCollectionProducers/src/HITrackClusterRemover.cc:188:  if (doStrip_) {
+.//RecoLocalTracker/SubCollectionProducers/src/HITrackClusterRemover.cc:200:    if (!pblocks_[i].isSet_)
+.//RecoLocalTracker/SubCollectionProducers/src/HITrackClusterRemover.cc:203:    if (pblocks_[i].usesCharge_ && !usingCharge) {
+.//RecoLocalTracker/SubCollectionProducers/src/HITrackClusterRemover.cc:209:  if (!clusterWasteSolution_) {
+.//RecoLocalTracker/SubCollectionProducers/src/HITrackClusterRemover.cc:224:  if (doTracks_)
+.//RecoLocalTracker/SubCollectionProducers/src/HITrackClusterRemover.cc:226:  if (doPixel_)
+.//RecoLocalTracker/SubCollectionProducers/src/HITrackClusterRemover.cc:228:  if (doStrip_)
+.//RecoLocalTracker/SubCollectionProducers/src/HITrackClusterRemover.cc:230:  if (mergeOld_) {
+.//RecoLocalTracker/SubCollectionProducers/src/HITrackClusterRemover.cc:236:  if (doStripChargeCheck_) {
+.//RecoLocalTracker/SubCollectionProducers/src/HITrackClusterRemover.cc:240:  //    if(doPixelChargeCheck_) pixelRecHitsToken_ = consumes<SiPixelRecHitCollection>(InputTag(pixelRecHits_));
+.//RecoLocalTracker/SubCollectionProducers/src/HITrackClusterRemover.cc:271:    if (oldDS.empty())
+.//RecoLocalTracker/SubCollectionProducers/src/HITrackClusterRemover.cc:280:      if (isGood[index]) {
+.//RecoLocalTracker/SubCollectionProducers/src/HITrackClusterRemover.cc:287:    if (outds.empty())
+.//RecoLocalTracker/SubCollectionProducers/src/HITrackClusterRemover.cc:291:  if (oldRefs != nullptr)
+.//RecoLocalTracker/SubCollectionProducers/src/HITrackClusterRemover.cc:297:  if (detid.subdetId() >= SiStripDetId::TIB) {
+.//RecoLocalTracker/SubCollectionProducers/src/HITrackClusterRemover.cc:298:    if (detid.subdetId() == SiStripDetId::TOB)
+.//RecoLocalTracker/SubCollectionProducers/src/HITrackClusterRemover.cc:300:    if (detid.moduleGeometry() == SiStripModuleGeometry::W5 || detid.moduleGeometry() == SiStripModuleGeometry::W6 ||
+.//RecoLocalTracker/SubCollectionProducers/src/HITrackClusterRemover.cc:304:  } else if (detid.subdetId() == PixelSubdetector::PixelBarrel)
+.//RecoLocalTracker/SubCollectionProducers/src/HITrackClusterRemover.cc:312:  if (cluster.id() != stripSourceProdID)
+.//RecoLocalTracker/SubCollectionProducers/src/HITrackClusterRemover.cc:319:  if (pblocks_[subdet - 1].usesSize_ && (cluster->amplitudes().size() > pblocks_[subdet - 1].maxSize_))
+.//RecoLocalTracker/SubCollectionProducers/src/HITrackClusterRemover.cc:321:  if (!fromTrack) {
+.//RecoLocalTracker/SubCollectionProducers/src/HITrackClusterRemover.cc:322:    if (pblocks_[subdet - 1].cutOnStripCharge_ &&
+.//RecoLocalTracker/SubCollectionProducers/src/HITrackClusterRemover.cc:327:  if (collectedStrips_.size() <= cluster.key())
+.//RecoLocalTracker/SubCollectionProducers/src/HITrackClusterRemover.cc:332:  if (!clusterWasteSolution_)
+.//RecoLocalTracker/SubCollectionProducers/src/HITrackClusterRemover.cc:343:  if (chi2 > Traj2TrackHits::toChi2x5(pblocks_[subdet - 1].maxChi2_))
+.//RecoLocalTracker/SubCollectionProducers/src/HITrackClusterRemover.cc:346:  if (GeomDetEnumerators::isTrackerPixel(tg->geomDetSubDetector(subdet))) {
+.//RecoLocalTracker/SubCollectionProducers/src/HITrackClusterRemover.cc:347:    if (!doPixel_)
+.//RecoLocalTracker/SubCollectionProducers/src/HITrackClusterRemover.cc:354:    if (cluster.id() != pixelSourceProdID)
+.//RecoLocalTracker/SubCollectionProducers/src/HITrackClusterRemover.cc:362:    // if requested, cut on cluster size
+.//RecoLocalTracker/SubCollectionProducers/src/HITrackClusterRemover.cc:363:    if (pblocks_[subdet - 1].usesSize_ && (cluster->pixels().size() > pblocks_[subdet - 1].maxSize_))
+.//RecoLocalTracker/SubCollectionProducers/src/HITrackClusterRemover.cc:369:    //if(!clusterWasteSolution_) collectedPixel[detid.rawId()].insert(cluster);
+.//RecoLocalTracker/SubCollectionProducers/src/HITrackClusterRemover.cc:372:    if (!clusterWasteSolution_)
+.//RecoLocalTracker/SubCollectionProducers/src/HITrackClusterRemover.cc:376:    if (!doStrip_)
+.//RecoLocalTracker/SubCollectionProducers/src/HITrackClusterRemover.cc:379:    if (hitType == typeid(SiStripRecHit2D)) {
+.//RecoLocalTracker/SubCollectionProducers/src/HITrackClusterRemover.cc:383:    } else if (hitType == typeid(SiStripRecHit1D)) {
+.//RecoLocalTracker/SubCollectionProducers/src/HITrackClusterRemover.cc:386:    } else if (hitType == typeid(SiStripMatchedRecHit2D)) {
+.//RecoLocalTracker/SubCollectionProducers/src/HITrackClusterRemover.cc:391:    } else if (hitType == typeid(ProjectedSiStripRecHit2D)) {
+.//RecoLocalTracker/SubCollectionProducers/src/HITrackClusterRemover.cc:417:  if (doPixel_) {
+.//RecoLocalTracker/SubCollectionProducers/src/HITrackClusterRemover.cc:424:  if (doStrip_) {
+.//RecoLocalTracker/SubCollectionProducers/src/HITrackClusterRemover.cc:431:  if (clusterWasteSolution_) {
+.//RecoLocalTracker/SubCollectionProducers/src/HITrackClusterRemover.cc:432:    if (doStrip_ && doPixel_)
+.//RecoLocalTracker/SubCollectionProducers/src/HITrackClusterRemover.cc:434:    else if (doStrip_)
+.//RecoLocalTracker/SubCollectionProducers/src/HITrackClusterRemover.cc:436:    else if (doPixel_)
+.//RecoLocalTracker/SubCollectionProducers/src/HITrackClusterRemover.cc:441:  if (mergeOld_ && clusterWasteSolution_) {
+.//RecoLocalTracker/SubCollectionProducers/src/HITrackClusterRemover.cc:444:    if ((oldRemovalInfo->stripNewRefProd().id() == stripClusters.id()) &&
+.//RecoLocalTracker/SubCollectionProducers/src/HITrackClusterRemover.cc:469:  if (doStrip_) {
+.//RecoLocalTracker/SubCollectionProducers/src/HITrackClusterRemover.cc:473:  if (doPixel_) {
+.//RecoLocalTracker/SubCollectionProducers/src/HITrackClusterRemover.cc:477:  if (mergeOld_) {
+.//RecoLocalTracker/SubCollectionProducers/src/HITrackClusterRemover.cc:493:  if (doTracks_) {
+.//RecoLocalTracker/SubCollectionProducers/src/HITrackClusterRemover.cc:498:    if (!overrideTrkQuals_.empty()) {
+.//RecoLocalTracker/SubCollectionProducers/src/HITrackClusterRemover.cc:504:      if (filterTracks_) {
+.//RecoLocalTracker/SubCollectionProducers/src/HITrackClusterRemover.cc:506:        if (!quals.empty()) {
+.//RecoLocalTracker/SubCollectionProducers/src/HITrackClusterRemover.cc:508:          if (qual < 0) {
+.//RecoLocalTracker/SubCollectionProducers/src/HITrackClusterRemover.cc:516:        if (!goodTk)
+.//RecoLocalTracker/SubCollectionProducers/src/HITrackClusterRemover.cc:518:        if (track.hitPattern().trackerLayersWithMeasurement() < minNumberOfLayersWithMeasBeforeFiltering_)
+.//RecoLocalTracker/SubCollectionProducers/src/HITrackClusterRemover.cc:526:        if (!hit->isValid())
+.//RecoLocalTracker/SubCollectionProducers/src/HITrackClusterRemover.cc:533:  if (doStripChargeCheck_) {
+.//RecoLocalTracker/SubCollectionProducers/src/HITrackClusterRemover.cc:553:  //    if(doPixelChargeCheck_) {
+.//RecoLocalTracker/SubCollectionProducers/src/HITrackClusterRemover.cc:558:  if (doPixel_ && clusterWasteSolution_) {
+.//RecoLocalTracker/SubCollectionProducers/src/HITrackClusterRemover.cc:564:  if (doStrip_ && clusterWasteSolution_) {
+.//RecoLocalTracker/SubCollectionProducers/src/HITrackClusterRemover.cc:571:  if (clusterWasteSolution_) {
+.//RecoLocalTracker/SubCollectionProducers/src/HITrackClusterRemover.cc:581:  if (!clusterWasteSolution_) {
+--- not found in filldesc cc
+###pramCC: trajectories  inCC: 225  inFillDesc: 0 
+225:    tracks_ = consumes<reco::TrackCollection>(iConfig.getParameter<InputTag>("trajectories"));
+--- not found in filldesc cc
+###pramCC: doStrip  inCC: 69  inFillDesc: 0 
+69:  bool doStrip_, doPixel_;
+108:  bool clusterWasteSolution_, doStripChargeCheck_, doPixelChargeCheck_;
+152:      doStripChargeCheck_(
+156:      stripRecHits_(doStripChargeCheck_ ? iConfig.getParameter<std::string>("stripRecHits")
+165:  if ((doPixelChargeCheck_ && !doPixel_) || (doStripChargeCheck_ && !doStrip_))
+174:  if (doStrip_ && clusterWasteSolution_)
+188:  if (doStrip_) {
+228:  if (doStrip_)
+236:  if (doStripChargeCheck_) {
+376:    if (!doStrip_)
+424:  if (doStrip_) {
+432:    if (doStrip_ && doPixel_)
+434:    else if (doStrip_)
+469:  if (doStrip_) {
+533:  if (doStripChargeCheck_) {
+564:  if (doStrip_ && clusterWasteSolution_) {
+--- not found in filldesc cc
+###pramCC: doPixel  inCC: 69  inFillDesc: 0 
+69:  bool doStrip_, doPixel_;
+108:  bool clusterWasteSolution_, doStripChargeCheck_, doPixelChargeCheck_;
+154:      doPixelChargeCheck_(
+158:      pixelRecHits_(doPixelChargeCheck_ ? iConfig.getParameter<std::string>("pixelRecHits")
+165:  if ((doPixelChargeCheck_ && !doPixel_) || (doStripChargeCheck_ && !doStrip_))
+168:  if (doPixelChargeCheck_)
+172:  if (doPixel_ && clusterWasteSolution_)
+183:  if (doPixel_) {
+226:  if (doPixel_)
+240:  //    if(doPixelChargeCheck_) pixelRecHitsToken_ = consumes<SiPixelRecHitCollection>(InputTag(pixelRecHits_));
+347:    if (!doPixel_)
+417:  if (doPixel_) {
+432:    if (doStrip_ && doPixel_)
+436:    else if (doPixel_)
+473:  if (doPixel_) {
+553:  //    if(doPixelChargeCheck_) {
+558:  if (doPixel_ && clusterWasteSolution_) {
+--- not found in filldesc cc
+###pramCC: oldClusterRemovalInfo  inCC: 160  inFillDesc: 0 
+160:  mergeOld_ = mergeOld_ && !iConfig.getParameter<InputTag>("oldClusterRemovalInfo").label().empty();
+231:    oldRemovalInfo_ = consumes<ClusterRemovalInfo>(iConfig.getParameter<InputTag>("oldClusterRemovalInfo"));
+232:    oldPxlMaskToken_ = consumes<PixelMaskContainer>(iConfig.getParameter<InputTag>("oldClusterRemovalInfo"));
+233:    oldStrMaskToken_ = consumes<StripMaskContainer>(iConfig.getParameter<InputTag>("oldClusterRemovalInfo"));
+--- not found in filldesc cc
+###pramCC: doStripChargeCheck  inCC: 108  inFillDesc: 0 
+108:  bool clusterWasteSolution_, doStripChargeCheck_, doPixelChargeCheck_;
+152:      doStripChargeCheck_(
+156:      stripRecHits_(doStripChargeCheck_ ? iConfig.getParameter<std::string>("stripRecHits")
+165:  if ((doPixelChargeCheck_ && !doPixel_) || (doStripChargeCheck_ && !doStrip_))
+236:  if (doStripChargeCheck_) {
+533:  if (doStripChargeCheck_) {
+--- not found in filldesc cc
+###pramCC: doPixelChargeCheck  inCC: 108  inFillDesc: 0 
+108:  bool clusterWasteSolution_, doStripChargeCheck_, doPixelChargeCheck_;
+154:      doPixelChargeCheck_(
+158:      pixelRecHits_(doPixelChargeCheck_ ? iConfig.getParameter<std::string>("pixelRecHits")
+165:  if ((doPixelChargeCheck_ && !doPixel_) || (doStripChargeCheck_ && !doStrip_))
+168:  if (doPixelChargeCheck_)
+240:  //    if(doPixelChargeCheck_) pixelRecHitsToken_ = consumes<SiPixelRecHitCollection>(InputTag(pixelRecHits_));
+553:  //    if(doPixelChargeCheck_) {
+--- not found in filldesc cc
+###pramCC: overrideTrkQuals  inCC: 79  inFillDesc: 0 
+79:  std::vector<edm::EDGetTokenT<edm::ValueMap<int> > > overrideTrkQuals_;
+162:    overrideTrkQuals_.push_back(consumes<edm::ValueMap<int> >(iConfig.getParameter<InputTag>("overrideTrkQuals")));
+498:    if (!overrideTrkQuals_.empty()) {
+500:      iEvent.getByToken(overrideTrkQuals_[0], quals[0]);
+--- not found in filldesc cc
+###pramCC: clusterLessSolution  inCC: 164  inFillDesc: 0 
+164:    clusterWasteSolution_ = !iConfig.getParameter<bool>("clusterLessSolution");
+--- not found in filldesc cc
+###pramCC: TrackQuality  inCC: 112  inFillDesc: 0 
+112:  reco::TrackBase::TrackQuality trackQuality_;
+217:    trackQuality_ = reco::TrackBase::qualityByName(iConfig.getParameter<std::string>("TrackQuality"));
+--- not found in filldesc cc
+###pramCC: minNumberOfLayersWithMeasBeforeFiltering  inCC: 111  inFillDesc: 0 
+111:  int minNumberOfLayersWithMeasBeforeFiltering_;
+218:    minNumberOfLayersWithMeasBeforeFiltering_ =
+220:            ? iConfig.getParameter<int>("minNumberOfLayersWithMeasBeforeFiltering")
+518:        if (track.hitPattern().trackerLayersWithMeasurement() < minNumberOfLayersWithMeasBeforeFiltering_)
+--- not found in filldesc cc
+###FinalCheck fillDesc 0 redundent 0  cfipython 0 redeudent 0
 ***********************************************************************
-#TargetCC: /RecoLocalTracker/SubCollectionProducers/src/HITrackClusterRemover.cc     #Function: HITrackClusterRemover
+#targetCC: /RecoLocalTracker/SubCollectionProducers/src/HITrackClusterRemover.cc     #function: readPSet
 53:          usesCharge_(iConfig.exists("maxCharge")),
 54:          usesSize_(iConfig.exists("maxSize")),
 55:          cutOnPixelCharge_(iConfig.exists("minGoodPixelCharge")),
@@ -237,52 +283,181 @@
 163:  if (iConfig.exists("clusterLessSolution"))
 215:  if (iConfig.exists("TrackQuality")) {
 219:        iConfig.existsAs<int>("minNumberOfLayersWithMeasBeforeFiltering")
-###pramCC: maxCharge  lineCC: 58 lineFill: 0
-###pramCC: maxSize  lineCC: 61 lineFill: 0
-###pramCC: minGoodPixelCharge  lineCC: 59 lineFill: 0
-###pramCC: minGoodStripCharge  lineCC: 60 lineFill: 0
-###pramCC: if (iConfig.exists(name)) {  lineCC: .//RecoLocalTracker/SubCollectionProducers/src/HITrackClusterRemover.cc lineFill: 0
-###pramCC: trajectories  lineCC: 225 lineFill: 0
-###pramCC: doStrip  lineCC: 69 lineFill: 0
-###pramCC: doPixel  lineCC: 69 lineFill: 0
-###pramCC: oldClusterRemovalInfo  lineCC: 160 lineFill: 0
-###pramCC: doStripChargeCheck  lineCC: 108 lineFill: 0
-###pramCC: doPixelChargeCheck  lineCC: 108 lineFill: 0
-###pramCC: overrideTrkQuals  lineCC: 79 lineFill: 0
-###pramCC: clusterLessSolution  lineCC: 164 lineFill: 0
-###pramCC: TrackQuality  lineCC: 112 lineFill: 0
-###pramCC: minNumberOfLayersWithMeasBeforeFiltering  lineCC: 111 lineFill: 0
-### FinalCheck ccfillDesc 0 0  cfipython 0 0
-***********************************************************************
-#TargetCC: /RecoLocalTracker/SubCollectionProducers/src/HITrackClusterRemover.cc     #Function: readPSet
-53:          usesCharge_(iConfig.exists("maxCharge")),
-54:          usesSize_(iConfig.exists("maxSize")),
-55:          cutOnPixelCharge_(iConfig.exists("minGoodPixelCharge")),
-56:          cutOnStripCharge_(iConfig.exists("minGoodStripCharge")),
-125:  if (iConfig.exists(name)) {
-147:      doTracks_(iConfig.exists("trajectories")),
-148:      doStrip_(iConfig.existsAs<bool>("doStrip") ? iConfig.getParameter<bool>("doStrip") : true),
-149:      doPixel_(iConfig.existsAs<bool>("doPixel") ? iConfig.getParameter<bool>("doPixel") : true),
-150:      mergeOld_(iConfig.exists("oldClusterRemovalInfo")),
-153:          iConfig.existsAs<bool>("doStripChargeCheck") ? iConfig.getParameter<bool>("doStripChargeCheck") : false),
-155:          iConfig.existsAs<bool>("doPixelChargeCheck") ? iConfig.getParameter<bool>("doPixelChargeCheck") : false),
-161:  if (iConfig.exists("overrideTrkQuals"))
-163:  if (iConfig.exists("clusterLessSolution"))
-215:  if (iConfig.exists("TrackQuality")) {
-219:        iConfig.existsAs<int>("minNumberOfLayersWithMeasBeforeFiltering")
-###pramCC: maxCharge  lineCC: 58 lineFill: 0
-###pramCC: maxSize  lineCC: 61 lineFill: 0
-###pramCC: minGoodPixelCharge  lineCC: 59 lineFill: 0
-###pramCC: minGoodStripCharge  lineCC: 60 lineFill: 0
-###pramCC: if (iConfig.exists(name)) {  lineCC: .//RecoLocalTracker/SubCollectionProducers/src/HITrackClusterRemover.cc lineFill: 0
-###pramCC: trajectories  lineCC: 225 lineFill: 0
-###pramCC: doStrip  lineCC: 69 lineFill: 0
-###pramCC: doPixel  lineCC: 69 lineFill: 0
-###pramCC: oldClusterRemovalInfo  lineCC: 160 lineFill: 0
-###pramCC: doStripChargeCheck  lineCC: 108 lineFill: 0
-###pramCC: doPixelChargeCheck  lineCC: 108 lineFill: 0
-###pramCC: overrideTrkQuals  lineCC: 79 lineFill: 0
-###pramCC: clusterLessSolution  lineCC: 164 lineFill: 0
-###pramCC: TrackQuality  lineCC: 112 lineFill: 0
-###pramCC: minNumberOfLayersWithMeasBeforeFiltering  lineCC: 111 lineFill: 0
-### FinalCheck ccfillDesc 0 0  cfipython 0 0
+###pramCC: maxCharge  inCC: 58  inFillDesc: 0 
+58:          maxCharge_(usesCharge_ ? iConfig.getParameter<double>("maxCharge") : 0),
+63:    float maxChi2_, maxCharge_, minGoodPixelCharge_, minGoodStripCharge_;
+--- not found in filldesc cc
+###pramCC: maxSize  inCC: 61  inFillDesc: 0 
+61:          maxSize_(usesSize_ ? iConfig.getParameter<uint32_t>("maxSize") : 0) {}
+64:    size_t maxSize_;
+319:  if (pblocks_[subdet - 1].usesSize_ && (cluster->amplitudes().size() > pblocks_[subdet - 1].maxSize_))
+363:    if (pblocks_[subdet - 1].usesSize_ && (cluster->pixels().size() > pblocks_[subdet - 1].maxSize_))
+--- not found in filldesc cc
+###pramCC: minGoodPixelCharge  inCC: 59  inFillDesc: 0 
+59:          minGoodPixelCharge_(cutOnPixelCharge_ ? iConfig.getParameter<double>("minGoodPixelCharge") : 0),
+63:    float maxChi2_, maxCharge_, minGoodPixelCharge_, minGoodStripCharge_;
+--- not found in filldesc cc
+###pramCC: minGoodStripCharge  inCC: 60  inFillDesc: 0 
+60:          minGoodStripCharge_(cutOnStripCharge_ ? iConfig.getParameter<double>("minGoodStripCharge") : 0),
+63:    float maxChi2_, maxCharge_, minGoodPixelCharge_, minGoodStripCharge_;
+323:        (cluster->charge() > (pblocks_[subdet - 1].minGoodStripCharge_ * sensorThickness(detid))))
+--- not found in filldesc cc
+###pramCC: if (iConfig.exists(name)) {  inCC: .//RecoLocalTracker/SubCollectionProducers/src/HITrackClusterRemover.cc  inFillDesc: 0 
+.//RecoLocalTracker/SubCollectionProducers/src/HITrackClusterRemover.cc:127:    if (id1 == -1) {
+.//RecoLocalTracker/SubCollectionProducers/src/HITrackClusterRemover.cc:131:      if (id2 != -1)
+.//RecoLocalTracker/SubCollectionProducers/src/HITrackClusterRemover.cc:133:      if (id3 != -1)
+.//RecoLocalTracker/SubCollectionProducers/src/HITrackClusterRemover.cc:135:      if (id4 != -1)
+.//RecoLocalTracker/SubCollectionProducers/src/HITrackClusterRemover.cc:137:      if (id5 != -1)
+.//RecoLocalTracker/SubCollectionProducers/src/HITrackClusterRemover.cc:139:      if (id6 != -1)
+.//RecoLocalTracker/SubCollectionProducers/src/HITrackClusterRemover.cc:165:  if ((doPixelChargeCheck_ && !doPixel_) || (doStripChargeCheck_ && !doStrip_))
+.//RecoLocalTracker/SubCollectionProducers/src/HITrackClusterRemover.cc:168:  if (doPixelChargeCheck_)
+.//RecoLocalTracker/SubCollectionProducers/src/HITrackClusterRemover.cc:172:  if (doPixel_ && clusterWasteSolution_)
+.//RecoLocalTracker/SubCollectionProducers/src/HITrackClusterRemover.cc:174:  if (doStrip_ && clusterWasteSolution_)
+.//RecoLocalTracker/SubCollectionProducers/src/HITrackClusterRemover.cc:176:  if (clusterWasteSolution_)
+.//RecoLocalTracker/SubCollectionProducers/src/HITrackClusterRemover.cc:183:  if (doPixel_) {
+.//RecoLocalTracker/SubCollectionProducers/src/HITrackClusterRemover.cc:188:  if (doStrip_) {
+.//RecoLocalTracker/SubCollectionProducers/src/HITrackClusterRemover.cc:200:    if (!pblocks_[i].isSet_)
+.//RecoLocalTracker/SubCollectionProducers/src/HITrackClusterRemover.cc:203:    if (pblocks_[i].usesCharge_ && !usingCharge) {
+.//RecoLocalTracker/SubCollectionProducers/src/HITrackClusterRemover.cc:209:  if (!clusterWasteSolution_) {
+.//RecoLocalTracker/SubCollectionProducers/src/HITrackClusterRemover.cc:224:  if (doTracks_)
+.//RecoLocalTracker/SubCollectionProducers/src/HITrackClusterRemover.cc:226:  if (doPixel_)
+.//RecoLocalTracker/SubCollectionProducers/src/HITrackClusterRemover.cc:228:  if (doStrip_)
+.//RecoLocalTracker/SubCollectionProducers/src/HITrackClusterRemover.cc:230:  if (mergeOld_) {
+.//RecoLocalTracker/SubCollectionProducers/src/HITrackClusterRemover.cc:236:  if (doStripChargeCheck_) {
+.//RecoLocalTracker/SubCollectionProducers/src/HITrackClusterRemover.cc:240:  //    if(doPixelChargeCheck_) pixelRecHitsToken_ = consumes<SiPixelRecHitCollection>(InputTag(pixelRecHits_));
+.//RecoLocalTracker/SubCollectionProducers/src/HITrackClusterRemover.cc:271:    if (oldDS.empty())
+.//RecoLocalTracker/SubCollectionProducers/src/HITrackClusterRemover.cc:280:      if (isGood[index]) {
+.//RecoLocalTracker/SubCollectionProducers/src/HITrackClusterRemover.cc:287:    if (outds.empty())
+.//RecoLocalTracker/SubCollectionProducers/src/HITrackClusterRemover.cc:291:  if (oldRefs != nullptr)
+.//RecoLocalTracker/SubCollectionProducers/src/HITrackClusterRemover.cc:297:  if (detid.subdetId() >= SiStripDetId::TIB) {
+.//RecoLocalTracker/SubCollectionProducers/src/HITrackClusterRemover.cc:298:    if (detid.subdetId() == SiStripDetId::TOB)
+.//RecoLocalTracker/SubCollectionProducers/src/HITrackClusterRemover.cc:300:    if (detid.moduleGeometry() == SiStripModuleGeometry::W5 || detid.moduleGeometry() == SiStripModuleGeometry::W6 ||
+.//RecoLocalTracker/SubCollectionProducers/src/HITrackClusterRemover.cc:304:  } else if (detid.subdetId() == PixelSubdetector::PixelBarrel)
+.//RecoLocalTracker/SubCollectionProducers/src/HITrackClusterRemover.cc:312:  if (cluster.id() != stripSourceProdID)
+.//RecoLocalTracker/SubCollectionProducers/src/HITrackClusterRemover.cc:319:  if (pblocks_[subdet - 1].usesSize_ && (cluster->amplitudes().size() > pblocks_[subdet - 1].maxSize_))
+.//RecoLocalTracker/SubCollectionProducers/src/HITrackClusterRemover.cc:321:  if (!fromTrack) {
+.//RecoLocalTracker/SubCollectionProducers/src/HITrackClusterRemover.cc:322:    if (pblocks_[subdet - 1].cutOnStripCharge_ &&
+.//RecoLocalTracker/SubCollectionProducers/src/HITrackClusterRemover.cc:327:  if (collectedStrips_.size() <= cluster.key())
+.//RecoLocalTracker/SubCollectionProducers/src/HITrackClusterRemover.cc:332:  if (!clusterWasteSolution_)
+.//RecoLocalTracker/SubCollectionProducers/src/HITrackClusterRemover.cc:343:  if (chi2 > Traj2TrackHits::toChi2x5(pblocks_[subdet - 1].maxChi2_))
+.//RecoLocalTracker/SubCollectionProducers/src/HITrackClusterRemover.cc:346:  if (GeomDetEnumerators::isTrackerPixel(tg->geomDetSubDetector(subdet))) {
+.//RecoLocalTracker/SubCollectionProducers/src/HITrackClusterRemover.cc:347:    if (!doPixel_)
+.//RecoLocalTracker/SubCollectionProducers/src/HITrackClusterRemover.cc:354:    if (cluster.id() != pixelSourceProdID)
+.//RecoLocalTracker/SubCollectionProducers/src/HITrackClusterRemover.cc:362:    // if requested, cut on cluster size
+.//RecoLocalTracker/SubCollectionProducers/src/HITrackClusterRemover.cc:363:    if (pblocks_[subdet - 1].usesSize_ && (cluster->pixels().size() > pblocks_[subdet - 1].maxSize_))
+.//RecoLocalTracker/SubCollectionProducers/src/HITrackClusterRemover.cc:369:    //if(!clusterWasteSolution_) collectedPixel[detid.rawId()].insert(cluster);
+.//RecoLocalTracker/SubCollectionProducers/src/HITrackClusterRemover.cc:372:    if (!clusterWasteSolution_)
+.//RecoLocalTracker/SubCollectionProducers/src/HITrackClusterRemover.cc:376:    if (!doStrip_)
+.//RecoLocalTracker/SubCollectionProducers/src/HITrackClusterRemover.cc:379:    if (hitType == typeid(SiStripRecHit2D)) {
+.//RecoLocalTracker/SubCollectionProducers/src/HITrackClusterRemover.cc:383:    } else if (hitType == typeid(SiStripRecHit1D)) {
+.//RecoLocalTracker/SubCollectionProducers/src/HITrackClusterRemover.cc:386:    } else if (hitType == typeid(SiStripMatchedRecHit2D)) {
+.//RecoLocalTracker/SubCollectionProducers/src/HITrackClusterRemover.cc:391:    } else if (hitType == typeid(ProjectedSiStripRecHit2D)) {
+.//RecoLocalTracker/SubCollectionProducers/src/HITrackClusterRemover.cc:417:  if (doPixel_) {
+.//RecoLocalTracker/SubCollectionProducers/src/HITrackClusterRemover.cc:424:  if (doStrip_) {
+.//RecoLocalTracker/SubCollectionProducers/src/HITrackClusterRemover.cc:431:  if (clusterWasteSolution_) {
+.//RecoLocalTracker/SubCollectionProducers/src/HITrackClusterRemover.cc:432:    if (doStrip_ && doPixel_)
+.//RecoLocalTracker/SubCollectionProducers/src/HITrackClusterRemover.cc:434:    else if (doStrip_)
+.//RecoLocalTracker/SubCollectionProducers/src/HITrackClusterRemover.cc:436:    else if (doPixel_)
+.//RecoLocalTracker/SubCollectionProducers/src/HITrackClusterRemover.cc:441:  if (mergeOld_ && clusterWasteSolution_) {
+.//RecoLocalTracker/SubCollectionProducers/src/HITrackClusterRemover.cc:444:    if ((oldRemovalInfo->stripNewRefProd().id() == stripClusters.id()) &&
+.//RecoLocalTracker/SubCollectionProducers/src/HITrackClusterRemover.cc:469:  if (doStrip_) {
+.//RecoLocalTracker/SubCollectionProducers/src/HITrackClusterRemover.cc:473:  if (doPixel_) {
+.//RecoLocalTracker/SubCollectionProducers/src/HITrackClusterRemover.cc:477:  if (mergeOld_) {
+.//RecoLocalTracker/SubCollectionProducers/src/HITrackClusterRemover.cc:493:  if (doTracks_) {
+.//RecoLocalTracker/SubCollectionProducers/src/HITrackClusterRemover.cc:498:    if (!overrideTrkQuals_.empty()) {
+.//RecoLocalTracker/SubCollectionProducers/src/HITrackClusterRemover.cc:504:      if (filterTracks_) {
+.//RecoLocalTracker/SubCollectionProducers/src/HITrackClusterRemover.cc:506:        if (!quals.empty()) {
+.//RecoLocalTracker/SubCollectionProducers/src/HITrackClusterRemover.cc:508:          if (qual < 0) {
+.//RecoLocalTracker/SubCollectionProducers/src/HITrackClusterRemover.cc:516:        if (!goodTk)
+.//RecoLocalTracker/SubCollectionProducers/src/HITrackClusterRemover.cc:518:        if (track.hitPattern().trackerLayersWithMeasurement() < minNumberOfLayersWithMeasBeforeFiltering_)
+.//RecoLocalTracker/SubCollectionProducers/src/HITrackClusterRemover.cc:526:        if (!hit->isValid())
+.//RecoLocalTracker/SubCollectionProducers/src/HITrackClusterRemover.cc:533:  if (doStripChargeCheck_) {
+.//RecoLocalTracker/SubCollectionProducers/src/HITrackClusterRemover.cc:553:  //    if(doPixelChargeCheck_) {
+.//RecoLocalTracker/SubCollectionProducers/src/HITrackClusterRemover.cc:558:  if (doPixel_ && clusterWasteSolution_) {
+.//RecoLocalTracker/SubCollectionProducers/src/HITrackClusterRemover.cc:564:  if (doStrip_ && clusterWasteSolution_) {
+.//RecoLocalTracker/SubCollectionProducers/src/HITrackClusterRemover.cc:571:  if (clusterWasteSolution_) {
+.//RecoLocalTracker/SubCollectionProducers/src/HITrackClusterRemover.cc:581:  if (!clusterWasteSolution_) {
+--- not found in filldesc cc
+###pramCC: trajectories  inCC: 225  inFillDesc: 0 
+225:    tracks_ = consumes<reco::TrackCollection>(iConfig.getParameter<InputTag>("trajectories"));
+--- not found in filldesc cc
+###pramCC: doStrip  inCC: 69  inFillDesc: 0 
+69:  bool doStrip_, doPixel_;
+108:  bool clusterWasteSolution_, doStripChargeCheck_, doPixelChargeCheck_;
+152:      doStripChargeCheck_(
+156:      stripRecHits_(doStripChargeCheck_ ? iConfig.getParameter<std::string>("stripRecHits")
+165:  if ((doPixelChargeCheck_ && !doPixel_) || (doStripChargeCheck_ && !doStrip_))
+174:  if (doStrip_ && clusterWasteSolution_)
+188:  if (doStrip_) {
+228:  if (doStrip_)
+236:  if (doStripChargeCheck_) {
+376:    if (!doStrip_)
+424:  if (doStrip_) {
+432:    if (doStrip_ && doPixel_)
+434:    else if (doStrip_)
+469:  if (doStrip_) {
+533:  if (doStripChargeCheck_) {
+564:  if (doStrip_ && clusterWasteSolution_) {
+--- not found in filldesc cc
+###pramCC: doPixel  inCC: 69  inFillDesc: 0 
+69:  bool doStrip_, doPixel_;
+108:  bool clusterWasteSolution_, doStripChargeCheck_, doPixelChargeCheck_;
+154:      doPixelChargeCheck_(
+158:      pixelRecHits_(doPixelChargeCheck_ ? iConfig.getParameter<std::string>("pixelRecHits")
+165:  if ((doPixelChargeCheck_ && !doPixel_) || (doStripChargeCheck_ && !doStrip_))
+168:  if (doPixelChargeCheck_)
+172:  if (doPixel_ && clusterWasteSolution_)
+183:  if (doPixel_) {
+226:  if (doPixel_)
+240:  //    if(doPixelChargeCheck_) pixelRecHitsToken_ = consumes<SiPixelRecHitCollection>(InputTag(pixelRecHits_));
+347:    if (!doPixel_)
+417:  if (doPixel_) {
+432:    if (doStrip_ && doPixel_)
+436:    else if (doPixel_)
+473:  if (doPixel_) {
+553:  //    if(doPixelChargeCheck_) {
+558:  if (doPixel_ && clusterWasteSolution_) {
+--- not found in filldesc cc
+###pramCC: oldClusterRemovalInfo  inCC: 160  inFillDesc: 0 
+160:  mergeOld_ = mergeOld_ && !iConfig.getParameter<InputTag>("oldClusterRemovalInfo").label().empty();
+231:    oldRemovalInfo_ = consumes<ClusterRemovalInfo>(iConfig.getParameter<InputTag>("oldClusterRemovalInfo"));
+232:    oldPxlMaskToken_ = consumes<PixelMaskContainer>(iConfig.getParameter<InputTag>("oldClusterRemovalInfo"));
+233:    oldStrMaskToken_ = consumes<StripMaskContainer>(iConfig.getParameter<InputTag>("oldClusterRemovalInfo"));
+--- not found in filldesc cc
+###pramCC: doStripChargeCheck  inCC: 108  inFillDesc: 0 
+108:  bool clusterWasteSolution_, doStripChargeCheck_, doPixelChargeCheck_;
+152:      doStripChargeCheck_(
+156:      stripRecHits_(doStripChargeCheck_ ? iConfig.getParameter<std::string>("stripRecHits")
+165:  if ((doPixelChargeCheck_ && !doPixel_) || (doStripChargeCheck_ && !doStrip_))
+236:  if (doStripChargeCheck_) {
+533:  if (doStripChargeCheck_) {
+--- not found in filldesc cc
+###pramCC: doPixelChargeCheck  inCC: 108  inFillDesc: 0 
+108:  bool clusterWasteSolution_, doStripChargeCheck_, doPixelChargeCheck_;
+154:      doPixelChargeCheck_(
+158:      pixelRecHits_(doPixelChargeCheck_ ? iConfig.getParameter<std::string>("pixelRecHits")
+165:  if ((doPixelChargeCheck_ && !doPixel_) || (doStripChargeCheck_ && !doStrip_))
+168:  if (doPixelChargeCheck_)
+240:  //    if(doPixelChargeCheck_) pixelRecHitsToken_ = consumes<SiPixelRecHitCollection>(InputTag(pixelRecHits_));
+553:  //    if(doPixelChargeCheck_) {
+--- not found in filldesc cc
+###pramCC: overrideTrkQuals  inCC: 79  inFillDesc: 0 
+79:  std::vector<edm::EDGetTokenT<edm::ValueMap<int> > > overrideTrkQuals_;
+162:    overrideTrkQuals_.push_back(consumes<edm::ValueMap<int> >(iConfig.getParameter<InputTag>("overrideTrkQuals")));
+498:    if (!overrideTrkQuals_.empty()) {
+500:      iEvent.getByToken(overrideTrkQuals_[0], quals[0]);
+--- not found in filldesc cc
+###pramCC: clusterLessSolution  inCC: 164  inFillDesc: 0 
+164:    clusterWasteSolution_ = !iConfig.getParameter<bool>("clusterLessSolution");
+--- not found in filldesc cc
+###pramCC: TrackQuality  inCC: 112  inFillDesc: 0 
+112:  reco::TrackBase::TrackQuality trackQuality_;
+217:    trackQuality_ = reco::TrackBase::qualityByName(iConfig.getParameter<std::string>("TrackQuality"));
+--- not found in filldesc cc
+###pramCC: minNumberOfLayersWithMeasBeforeFiltering  inCC: 111  inFillDesc: 0 
+111:  int minNumberOfLayersWithMeasBeforeFiltering_;
+218:    minNumberOfLayersWithMeasBeforeFiltering_ =
+220:            ? iConfig.getParameter<int>("minNumberOfLayersWithMeasBeforeFiltering")
+518:        if (track.hitPattern().trackerLayersWithMeasurement() < minNumberOfLayersWithMeasBeforeFiltering_)
+--- not found in filldesc cc
+###FinalCheck fillDesc 0 redundent 0  cfipython 0 redeudent 0

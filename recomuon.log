@@ -1,26 +1,37 @@
 ************RecoMuon****************
 ***********************************************************************
-#TargetCC: /RecoMuon/GlobalTrackingTools/src/GlobalMuonRefitter.cc     #Function: GlobalMuonRefitter
+#targetCC: /RecoMuon/GlobalTrackingTools/src/GlobalMuonRefitter.cc     #function: GlobalMuonRefitter
 130:  if (par.existsAs<double>("RescaleErrorFactor")) {
-###pramCC: RescaleErrorFactor  lineCC: 131 lineFill: 0
-### FinalCheck ccfillDesc 0 0  cfipython 0 0
+###pramCC: RescaleErrorFactor  inCC: 131  inFillDesc: 0 
+131:    theRescaleErrorFactor = par.getParameter<double>("RescaleErrorFactor");
+132:    edm::LogWarning("GlobalMuonRefitter") << "using error rescale factor " << theRescaleErrorFactor;
+134:    theRescaleErrorFactor = 1000.;
+781:  firstTSOS.rescaleError(theRescaleErrorFactor);
+--- not found in filldesc cc
+###FinalCheck fillDesc 0 redundent 0  cfipython 0 redeudent 0
 ***********************************************************************
-#TargetCC: /RecoMuon/L2MuonProducer/plugins/L2MuonProducer.cc     #Function: L2MuonProducer
+#targetCC: /RecoMuon/L2MuonProducer/plugins/L2MuonProducer.cc     #function: L2MuonProducer
+#fillDescription: 155:void L2MuonProducer::fillDescriptions(edm::ConfigurationDescriptions& descriptions) {
+#cfipython: ../cfipython/slc7_amd64_gcc900/RecoMuon/L2MuonProducer/L2MuonProducer_cfi.py
 
-###FillDescription : 155:void L2MuonProducer::fillDescriptions(edm::ConfigurationDescriptions& descriptions) {
-###Cfipython : RecoMuon/L2MuonProducer/L2MuonProducer_cfi.py L2MuonProducer cms.EDProducer L2MuonProducer
-### FinalCheck ccfillDesc 1 0  cfipython 1 0
-==> Please Check and Update /RecoMuon/L2MuonProducer/plugins/L2MuonProducer.cc !!!  1 0 1 0 ../cfipython/slc7_amd64_gcc900/RecoMuon/L2MuonProducer/L2MuonProducer_cfi.py
-###################################################################3
+###FinalCheck fillDesc 1 redundent 0  cfipython 1 redeudent 0
+>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+Please check /RecoMuon/L2MuonProducer/plugins/L2MuonProducer.cc ! 1 0 1 0 ../cfipython/slc7_amd64_gcc900/RecoMuon/L2MuonProducer/L2MuonProducer_cfi.py
+>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
 ***********************************************************************
-#TargetCC: /RecoMuon/L3MuonProducer/src/L3MuonCandidateProducer.cc     #Function: L3MuonCandidateProducer
+#targetCC: /RecoMuon/L3MuonProducer/src/L3MuonCandidateProducer.cc     #function: L3MuonCandidateProducer
 51:  theUseLinks = parameterSet.existsAs<InputTag>("InputLinksObjects");
 60:  const std::string& muon_track_for_momentum = parameterSet.existsAs<std::string>("MuonPtOption")
-###pramCC: InputLinksObjects  lineCC: 53 lineFill: 0
-###pramCC: MuonPtOption  lineCC: 61 lineFill: 0
-### FinalCheck ccfillDesc 0 0  cfipython 0 0
+###pramCC: InputLinksObjects  inCC: 53  inFillDesc: 0 
+53:    theL3LinksLabel = parameterSet.getParameter<InputTag>("InputLinksObjects");
+--- not found in filldesc cc
+###pramCC: MuonPtOption  inCC: 61  inFillDesc: 0 
+61:                                                   ? parameterSet.getParameter<std::string>("MuonPtOption")
+70:    LogError(category) << "invalid value for MuonPtOption, please choose among 'Tracker', 'Standalone', 'Global'";
+--- not found in filldesc cc
+###FinalCheck fillDesc 0 redundent 0  cfipython 0 redeudent 0
 ***********************************************************************
-#TargetCC: /RecoMuon/MuonIdentification/plugins/cuts/MuonTrackCut.cc     #Function: MuonTrackCut
+#targetCC: /RecoMuon/MuonIdentification/plugins/cuts/MuonTrackCut.cc     #function: MuonTrackCut
 35:  if (c.existsAs<edm::ParameterSet>("innerTrack")) {
 39:    if (cc.exists("minTrackerLayersWithMeasurement"))
 41:    if (cc.exists("minPixelLayersWithMeasurement"))
@@ -30,125 +41,91 @@
 50:  if (c.existsAs<edm::ParameterSet>("globalTrack")) {
 54:    //if ( cc.exists("maxNormalizedChi2") ) maxNormalizedChi2_ = cc.getParameter<double>("maxNormalizedChi2");
 55:    if (cc.exists("minNumberOfValidMuonHits"))
-###pramCC: innerTrack  lineCC: 38 lineFill: 0
-###pramCC: minTrackerLayersWithMeasurement  lineCC: 15 lineFill: 0
-###pramCC: minPixelLayersWithMeasurement  lineCC: 15 lineFill: 0
-###pramCC: minNumberOfValidPixelHits  lineCC: 15 lineFill: 0
-###pramCC: minValidFraction  lineCC: 16 lineFill: 0
-###pramCC: trackQuality  lineCC: 17 lineFill: 0
-###pramCC: globalTrack  lineCC: 53 lineFill: 0
-###pramCC: maxNormalizedChi2  lineCC: 85 lineFill: 0
-###pramCC: minNumberOfValidMuonHits  lineCC: 18 lineFill: 0
-### FinalCheck ccfillDesc 0 0  cfipython 0 0
+###pramCC: innerTrack  inCC: 38  inFillDesc: 0 
+38:    const edm::ParameterSet cc = c.getParameter<edm::ParameterSet>("innerTrack");
+63:    const reco::TrackRef t = muon->innerTrack();
+94:    const reco::TrackRef t = muon->innerTrack();
+--- not found in filldesc cc
+###pramCC: minTrackerLayersWithMeasurement  inCC: 15  inFillDesc: 0 
+15:  int minTrackerLayersWithMeasurement_, minPixelLayersWithMeasurement_, minNumberOfValidPixelHits_;
+27:      minTrackerLayersWithMeasurement_(-1),
+40:      minTrackerLayersWithMeasurement_ = cc.getParameter<int>("minTrackerLayersWithMeasurement");
+69:    if (h.trackerLayersWithMeasurement() < minTrackerLayersWithMeasurement_)
+100:    if (h.trackerLayersWithMeasurement() < minTrackerLayersWithMeasurement_)
+--- not found in filldesc cc
+###pramCC: minPixelLayersWithMeasurement  inCC: 15  inFillDesc: 0 
+15:  int minTrackerLayersWithMeasurement_, minPixelLayersWithMeasurement_, minNumberOfValidPixelHits_;
+28:      minPixelLayersWithMeasurement_(-1),
+42:      minPixelLayersWithMeasurement_ = cc.getParameter<int>("minPixelLayersWithMeasurement");
+71:    if (h.pixelLayersWithMeasurement() < minPixelLayersWithMeasurement_)
+102:    if (h.pixelLayersWithMeasurement() < minPixelLayersWithMeasurement_)
+--- not found in filldesc cc
+###pramCC: minNumberOfValidPixelHits  inCC: 15  inFillDesc: 0 
+15:  int minTrackerLayersWithMeasurement_, minPixelLayersWithMeasurement_, minNumberOfValidPixelHits_;
+29:      minNumberOfValidPixelHits_(-1),
+44:      minNumberOfValidPixelHits_ = cc.getParameter<int>("minNumberOfValidPixelHits");
+73:    if (h.numberOfValidPixelHits() < minNumberOfValidPixelHits_)
+104:    if (h.numberOfValidPixelHits() < minNumberOfValidPixelHits_)
+--- not found in filldesc cc
+###pramCC: minValidFraction  inCC: 16  inFillDesc: 0 
+16:  double minValidFraction_;
+30:      minValidFraction_(-1),
+46:      minValidFraction_ = cc.getParameter<double>("minValidFraction");
+75:    if (t->validFraction() <= minValidFraction_)
+106:    if (t->validFraction() <= minValidFraction_)
+--- not found in filldesc cc
+###pramCC: trackQuality  inCC: 17  inFillDesc: 0 
+17:  reco::Track::TrackQuality trackQuality_;
+31:      trackQuality_(reco::Track::undefQuality),
+48:    trackQuality_ = reco::Track::qualityByName(trackQualityStr);
+67:    if (trackQuality_ != reco::Track::undefQuality and !t->quality(trackQuality_))
+98:    if (trackQuality_ != reco::Track::undefQuality and !t->quality(trackQuality_))
+99:      return t->quality(trackQuality_);
+--- not found in filldesc cc
+###pramCC: globalTrack  inCC: 53  inFillDesc: 0 
+53:    const edm::ParameterSet cc = c.getParameter<edm::ParameterSet>("globalTrack");
+79:    const reco::TrackRef t = muon->globalTrack();
+112:    const reco::TrackRef t = muon->globalTrack();
+--- not found in filldesc cc
+###pramCC: maxNormalizedChi2  inCC: 85  inFillDesc: 0 
+85:    // if ( t->normalizedChi2() > maxNormalizedChi2_ ) return false; Not used for
+118:    // if ( t->normalizedChi2() > maxNormalizedChi2_ ) return false; Not used for
+--- not found in filldesc cc
+###pramCC: minNumberOfValidMuonHits  inCC: 18  inFillDesc: 0 
+18:  int minNumberOfValidMuonHits_;
+32:      minNumberOfValidMuonHits_(-1),
+56:      minNumberOfValidMuonHits_ = cc.getParameter<int>("minNumberOfValidMuonHits");
+83:    if (h.numberOfValidMuonHits() < minNumberOfValidMuonHits_)
+116:    if (h.numberOfValidMuonHits() < minNumberOfValidMuonHits_)
+--- not found in filldesc cc
+###FinalCheck fillDesc 0 redundent 0  cfipython 0 redeudent 0
 ***********************************************************************
-#TargetCC: /RecoMuon/MuonIdentification/plugins/cuts/MuonTrackCut.cc     #Function: MuonTrackCut
-35:  if (c.existsAs<edm::ParameterSet>("innerTrack")) {
-39:    if (cc.exists("minTrackerLayersWithMeasurement"))
-41:    if (cc.exists("minPixelLayersWithMeasurement"))
-43:    if (cc.exists("minNumberOfValidPixelHits"))
-45:    if (cc.exists("minValidFraction"))
-47:    const std::string trackQualityStr = cc.exists("trackQuality") ? cc.getParameter<std::string>("trackQuality") : "";
-50:  if (c.existsAs<edm::ParameterSet>("globalTrack")) {
-54:    //if ( cc.exists("maxNormalizedChi2") ) maxNormalizedChi2_ = cc.getParameter<double>("maxNormalizedChi2");
-55:    if (cc.exists("minNumberOfValidMuonHits"))
-###pramCC: innerTrack  lineCC: 38 lineFill: 0
-###pramCC: minTrackerLayersWithMeasurement  lineCC: 15 lineFill: 0
-###pramCC: minPixelLayersWithMeasurement  lineCC: 15 lineFill: 0
-###pramCC: minNumberOfValidPixelHits  lineCC: 15 lineFill: 0
-###pramCC: minValidFraction  lineCC: 16 lineFill: 0
-###pramCC: trackQuality  lineCC: 17 lineFill: 0
-###pramCC: globalTrack  lineCC: 53 lineFill: 0
-###pramCC: maxNormalizedChi2  lineCC: 85 lineFill: 0
-###pramCC: minNumberOfValidMuonHits  lineCC: 18 lineFill: 0
-### FinalCheck ccfillDesc 0 0  cfipython 0 0
-***********************************************************************
-#TargetCC: /RecoMuon/MuonIdentification/plugins/cuts/MuonTrackCut.cc     #Function: MuonTrackCut
-35:  if (c.existsAs<edm::ParameterSet>("innerTrack")) {
-39:    if (cc.exists("minTrackerLayersWithMeasurement"))
-41:    if (cc.exists("minPixelLayersWithMeasurement"))
-43:    if (cc.exists("minNumberOfValidPixelHits"))
-45:    if (cc.exists("minValidFraction"))
-47:    const std::string trackQualityStr = cc.exists("trackQuality") ? cc.getParameter<std::string>("trackQuality") : "";
-50:  if (c.existsAs<edm::ParameterSet>("globalTrack")) {
-54:    //if ( cc.exists("maxNormalizedChi2") ) maxNormalizedChi2_ = cc.getParameter<double>("maxNormalizedChi2");
-55:    if (cc.exists("minNumberOfValidMuonHits"))
-###pramCC: innerTrack  lineCC: 38 lineFill: 0
-###pramCC: minTrackerLayersWithMeasurement  lineCC: 15 lineFill: 0
-###pramCC: minPixelLayersWithMeasurement  lineCC: 15 lineFill: 0
-###pramCC: minNumberOfValidPixelHits  lineCC: 15 lineFill: 0
-###pramCC: minValidFraction  lineCC: 16 lineFill: 0
-###pramCC: trackQuality  lineCC: 17 lineFill: 0
-###pramCC: globalTrack  lineCC: 53 lineFill: 0
-###pramCC: maxNormalizedChi2  lineCC: 85 lineFill: 0
-###pramCC: minNumberOfValidMuonHits  lineCC: 18 lineFill: 0
-### FinalCheck ccfillDesc 0 0  cfipython 0 0
-***********************************************************************
-#TargetCC: /RecoMuon/MuonIdentification/plugins/cuts/MuonTrackCut.cc     #Function: MuonTrackCut
-35:  if (c.existsAs<edm::ParameterSet>("innerTrack")) {
-39:    if (cc.exists("minTrackerLayersWithMeasurement"))
-41:    if (cc.exists("minPixelLayersWithMeasurement"))
-43:    if (cc.exists("minNumberOfValidPixelHits"))
-45:    if (cc.exists("minValidFraction"))
-47:    const std::string trackQualityStr = cc.exists("trackQuality") ? cc.getParameter<std::string>("trackQuality") : "";
-50:  if (c.existsAs<edm::ParameterSet>("globalTrack")) {
-54:    //if ( cc.exists("maxNormalizedChi2") ) maxNormalizedChi2_ = cc.getParameter<double>("maxNormalizedChi2");
-55:    if (cc.exists("minNumberOfValidMuonHits"))
-###pramCC: innerTrack  lineCC: 38 lineFill: 0
-###pramCC: minTrackerLayersWithMeasurement  lineCC: 15 lineFill: 0
-###pramCC: minPixelLayersWithMeasurement  lineCC: 15 lineFill: 0
-###pramCC: minNumberOfValidPixelHits  lineCC: 15 lineFill: 0
-###pramCC: minValidFraction  lineCC: 16 lineFill: 0
-###pramCC: trackQuality  lineCC: 17 lineFill: 0
-###pramCC: globalTrack  lineCC: 53 lineFill: 0
-###pramCC: maxNormalizedChi2  lineCC: 85 lineFill: 0
-###pramCC: minNumberOfValidMuonHits  lineCC: 18 lineFill: 0
-### FinalCheck ccfillDesc 0 0  cfipython 0 0
-***********************************************************************
-#TargetCC: /RecoMuon/MuonIdentification/plugins/cuts/MuonTrackCut.cc     #Function: MuonTrackCut
-35:  if (c.existsAs<edm::ParameterSet>("innerTrack")) {
-39:    if (cc.exists("minTrackerLayersWithMeasurement"))
-41:    if (cc.exists("minPixelLayersWithMeasurement"))
-43:    if (cc.exists("minNumberOfValidPixelHits"))
-45:    if (cc.exists("minValidFraction"))
-47:    const std::string trackQualityStr = cc.exists("trackQuality") ? cc.getParameter<std::string>("trackQuality") : "";
-50:  if (c.existsAs<edm::ParameterSet>("globalTrack")) {
-54:    //if ( cc.exists("maxNormalizedChi2") ) maxNormalizedChi2_ = cc.getParameter<double>("maxNormalizedChi2");
-55:    if (cc.exists("minNumberOfValidMuonHits"))
-###pramCC: innerTrack  lineCC: 38 lineFill: 0
-###pramCC: minTrackerLayersWithMeasurement  lineCC: 15 lineFill: 0
-###pramCC: minPixelLayersWithMeasurement  lineCC: 15 lineFill: 0
-###pramCC: minNumberOfValidPixelHits  lineCC: 15 lineFill: 0
-###pramCC: minValidFraction  lineCC: 16 lineFill: 0
-###pramCC: trackQuality  lineCC: 17 lineFill: 0
-###pramCC: globalTrack  lineCC: 53 lineFill: 0
-###pramCC: maxNormalizedChi2  lineCC: 85 lineFill: 0
-###pramCC: minNumberOfValidMuonHits  lineCC: 18 lineFill: 0
-### FinalCheck ccfillDesc 0 0  cfipython 0 0
-***********************************************************************
-#TargetCC: /RecoMuon/MuonSeedGenerator/plugins/CosmicMuonSeedGenerator.cc     #Function: CosmicMuonSeedGenerator
+#targetCC: /RecoMuon/MuonSeedGenerator/plugins/CosmicMuonSeedGenerator.cc     #function: CosmicMuonSeedGenerator
 57:  theForcePointDownFlag = pset.existsAs<bool>("ForcePointDown") ? pset.getParameter<bool>("ForcePointDown") : true;
-###pramCC: ForcePointDown  lineCC: 324 lineFill: 0
-### FinalCheck ccfillDesc 0 0  cfipython 0 0
+###pramCC: ForcePointDown  inCC: 324  inFillDesc: 0 
+324:  if (theForcePointDownFlag) {
+489:  if (theForcePointDownFlag) {
+--- not found in filldesc cc
+###FinalCheck fillDesc 0 redundent 0  cfipython 0 redeudent 0
 ***********************************************************************
-#TargetCC: /RecoMuon/TrackingTools/src/MuonSegmentMatcher.cc     #Function: MuonSegmentMatcher
+#targetCC: /RecoMuon/TrackingTools/src/MuonSegmentMatcher.cc     #function: MuonSegmentMatcher
 48:  if (matchParameters.existsAs<edm::InputTag>("RPChits")) {
-###pramCC: RPChits  lineCC: 49 lineFill: 0
-### FinalCheck ccfillDesc 0 0  cfipython 0 0
+###pramCC: RPChits  inCC: 49  inFillDesc: 0 
+49:    RPCHitTags_ = matchParameters.getParameter<edm::InputTag>("RPChits");
+--- not found in filldesc cc
+###FinalCheck fillDesc 0 redundent 0  cfipython 0 redeudent 0
 ***********************************************************************
-#TargetCC: /RecoMuon/TrackingTools/src/MuonServiceProxy.cc     #Function: MuonServiceProxy
+#targetCC: /RecoMuon/TrackingTools/src/MuonServiceProxy.cc     #function: MuonServiceProxy
 40:    if (par.existsAs<bool>("CSCLayers"))
 45:    if (par.existsAs<bool>("GEMLayers"))
 50:    if (par.existsAs<bool>("ME0Layers"))
-###pramCC: CSCLayers  lineCC: 41 lineFill: 0
-###pramCC: GEMLayers  lineCC: 46 lineFill: 0
-###pramCC: ME0Layers  lineCC: 51 lineFill: 0
-### FinalCheck ccfillDesc 0 0  cfipython 0 0
-***********************************************************************
-#TargetCC: /RecoMuon/TrackingTools/src/MuonServiceProxy.cc     #Function: MuonServiceProxy
-40:    if (par.existsAs<bool>("CSCLayers"))
-45:    if (par.existsAs<bool>("GEMLayers"))
-50:    if (par.existsAs<bool>("ME0Layers"))
-###pramCC: CSCLayers  lineCC: 41 lineFill: 0
-###pramCC: GEMLayers  lineCC: 46 lineFill: 0
-###pramCC: ME0Layers  lineCC: 51 lineFill: 0
-### FinalCheck ccfillDesc 0 0  cfipython 0 0
+###pramCC: CSCLayers  inCC: 41  inFillDesc: 0 
+41:      theCSCLayer = par.getParameter<bool>("CSCLayers");
+--- not found in filldesc cc
+###pramCC: GEMLayers  inCC: 46  inFillDesc: 0 
+46:      theGEMLayer = par.getParameter<bool>("GEMLayers");
+--- not found in filldesc cc
+###pramCC: ME0Layers  inCC: 51  inFillDesc: 0 
+51:      theME0Layer = par.getParameter<bool>("ME0Layers");
+--- not found in filldesc cc
+###FinalCheck fillDesc 0 redundent 0  cfipython 0 redeudent 0
