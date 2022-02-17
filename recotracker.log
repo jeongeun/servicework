@@ -160,36 +160,42 @@
 ###FinalCheck fillDesc 0 redundent 0  cfipython 0 redeudent 0
 ***********************************************************************
 #targetCC: /RecoTracker/TkSeedGenerator/plugins/MultiHitGeneratorFromChi2.cc     #function: MultiHitGeneratorFromChi2
+#fillDescription: 110:void MultiHitGeneratorFromChi2::fillDescriptions(edm::ParameterSetDescription& desc) {
 67:      builderName_(cfg.existsAs<std::string>("TTRHBuilder") ? cfg.getParameter<std::string>("TTRHBuilder")
 89:  if (cfg.exists("SimpleMagneticField")) {
-###pramCC: TTRHBuilder  inCC: 128  inFillDesc: 0 
+###pramCC: TTRHBuilder  inCC: 128  inFillDesc: 110 
 128:  desc.add<std::string>("TTRHBuilder", "WithTrackAngle");
---- not found in filldesc cc
-###pramCC: SimpleMagneticField  inCC: 87  inFillDesc: 0 
+--- in filldesc cc : 128:  desc.add<std::string>("TTRHBuilder", "WithTrackAngle");
+###pramCC: SimpleMagneticField  inCC: 87  inFillDesc: 110 
 87:  // and use only a string magneticField [instead of SimpleMagneticField]
 91:    mfName_ = cfg.getParameter<std::string>("SimpleMagneticField");
 --- not found in filldesc cc
-###FinalCheck fillDesc 0 redundent 0  cfipython 0 redeudent 0
+###FinalCheck fillDesc 1 redundent 1  cfipython 0 redeudent 0
+>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+Please check /RecoTracker/TkSeedGenerator/plugins/MultiHitGeneratorFromChi2.cc ! 1 1 0 0 
+>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
 ***********************************************************************
 #targetCC: /RecoTracker/TkSeedGenerator/src/ClusterChecker.cc     #function: ClusterChecker
+#fillDescription: 32:void ClusterChecker::fillDescriptions(edm::ParameterSetDescription& desc) {
 #cfipython: ../cfipython/slc7_amd64_gcc900/RecoTracker/TkSeedGenerator/trackerClusterCheckDefault_cfi.py
 14:      selector_(conf.getParameter<bool>("doClusterCheck") && conf.existsAs<std::string>("cut")
 24:    if (conf.existsAs<uint32_t>("DontCountDetsAboveNClusters")) {
-###pramCC: doClusterCheck  inCC: 13  inFillDesc: 0 
+###pramCC: doClusterCheck  inCC: 13  inFillDesc: 32 
 13:    : doACheck_(conf.getParameter<bool>("doClusterCheck")),
 33:  desc.add<bool>("doClusterCheck", true);
 --- not found in filldesc cc
 --- in cfipy : 4:  doClusterCheck = cms.bool(True),
-###pramCC: DontCountDetsAboveNClusters  inCC: 25  inFillDesc: 0 
+###pramCC: DontCountDetsAboveNClusters  inCC: 25  inFillDesc: 32 
 25:      ignoreDetsAboveNClusters_ = conf.getParameter<uint32_t>("DontCountDetsAboveNClusters");
 --- not found in filldesc cc
 --- not found in cfi
-###FinalCheck fillDesc 0 redundent 0  cfipython 1 redeudent 1
+###FinalCheck fillDesc 1 redundent 0  cfipython 1 redeudent 1
 >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
-Please check /RecoTracker/TkSeedGenerator/src/ClusterChecker.cc ! 0 0 1 1 ../cfipython/slc7_amd64_gcc900/RecoTracker/TkSeedGenerator/trackerClusterCheckDefault_cfi.py
+Please check /RecoTracker/TkSeedGenerator/src/ClusterChecker.cc ! 1 0 1 1 ../cfipython/slc7_amd64_gcc900/RecoTracker/TkSeedGenerator/trackerClusterCheckDefault_cfi.py
 >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
 ***********************************************************************
 #targetCC: /RecoTracker/TkSeedingLayers/src/SeedingLayerSetsBuilder.cc     #function: LayerSpec
+#fillDescription: 247:void SeedingLayerSetsBuilder::fillDescriptions(edm::ParameterSetDescription& desc) {
 108:  if (cfgLayer.exists("HitProducer")) {
 113:  bool skipClusters = cfgLayer.exists("skipClusters");
 128:    if (cfgLayer.exists("matchedRecHits")) {
@@ -201,44 +207,44 @@ Please check /RecoTracker/TkSeedGenerator/src/ClusterChecker.cc ! 0 0 1 1 ../cfi
 147:    double minAbsZ = cfgLayer.exists("MinAbsZ") ? cfgLayer.getParameter<double>("MinAbsZ") : 0.;
 152:      bool useProjection = cfgLayer.exists("useProjection") ? cfgLayer.getParameter<bool>("useProjection") : false;
 270:    if (cfg.exists(name))
-###pramCC: HitProducer  inCC: 107  inFillDesc: 0 
+###pramCC: HitProducer  inCC: 107  inFillDesc: 247 
 107:  usePixelHitProducer = false;
 109:    pixelHitProducer = cfgLayer.getParameter<string>("HitProducer");
 110:    usePixelHitProducer = true;
 125:    extractor = std::make_unique<HitExtractorPIX>(side, idLayer, pixelHitProducer, iC);
 --- not found in filldesc cc
-###pramCC: skipClusters  inCC: 114  inFillDesc: 0 
+###pramCC: skipClusters  inCC: 114  inFillDesc: 247 
 114:  if (skipClusters) {
 151:    if (skipClusters) {
 161:  if (extractor && skipClusters) {
 162:    extractor->useSkipClusters(cfgLayer.getParameter<edm::InputTag>("skipClusters"), iC);
 --- not found in filldesc cc
-###pramCC: matchedRecHits  inCC: 129  inFillDesc: 0 
+###pramCC: matchedRecHits  inCC: 129  inFillDesc: 247 
 129:      extr->useMatchedHits(cfgLayer.getParameter<edm::InputTag>("matchedRecHits"), iC);
 --- not found in filldesc cc
-###pramCC: rphiRecHits  inCC: 132  inFillDesc: 0 
+###pramCC: rphiRecHits  inCC: 132  inFillDesc: 247 
 132:      extr->useRPhiHits(cfgLayer.getParameter<edm::InputTag>("rphiRecHits"), iC);
 --- not found in filldesc cc
-###pramCC: stereoRecHits  inCC: 135  inFillDesc: 0 
+###pramCC: stereoRecHits  inCC: 135  inFillDesc: 247 
 135:      extr->useStereoHits(cfgLayer.getParameter<edm::InputTag>("stereoRecHits"), iC);
 --- not found in filldesc cc
-###pramCC: vectorRecHits  inCC: 138  inFillDesc: 0 
+###pramCC: vectorRecHits  inCC: 138  inFillDesc: 247 
 138:      extr->useVectorHits(cfgLayer.getParameter<edm::InputTag>("vectorRecHits"), iC);
 --- not found in filldesc cc
-###pramCC: useRingSlector  inCC:   inFillDesc: 0 
+###pramCC: useRingSlector  inCC:   inFillDesc: 247 
 
 --- not found in filldesc cc
-###pramCC: useSimpleRphiHitsCleaner  inCC: 143  inFillDesc: 0 
+###pramCC: useSimpleRphiHitsCleaner  inCC: 143  inFillDesc: 247 
 143:    bool useSimpleRphiHitsCleaner =
 145:    extr->useSimpleRphiHitsCleaner(useSimpleRphiHitsCleaner);
 --- not found in filldesc cc
-###pramCC: MinAbsZ  inCC: 149  inFillDesc: 0 
+###pramCC: MinAbsZ  inCC: 149  inFillDesc: 247 
 149:      extr->setMinAbsZ(minAbsZ);
 --- not found in filldesc cc
-###pramCC: useProjection  inCC: 153  inFillDesc: 0 
+###pramCC: useProjection  inCC: 153  inFillDesc: 247 
 153:      if (useProjection) {
 --- not found in filldesc cc
-###pramCC: if (cfg.exists(name))  inCC: .//RecoTracker/TkSeedingLayers/src/SeedingLayerSetsBuilder.cc  inFillDesc: 0 
+###pramCC: if (cfg.exists(name))  inCC: .//RecoTracker/TkSeedingLayers/src/SeedingLayerSetsBuilder.cc  inFillDesc: 247 
 .//RecoTracker/TkSeedingLayers/src/SeedingLayerSetsBuilder.cc:40:  if ((index = name.find("BPix")) != string::npos) {
 .//RecoTracker/TkSeedingLayers/src/SeedingLayerSetsBuilder.cc:48:  else if ((index = name.find("FPix")) != string::npos) {
 .//RecoTracker/TkSeedingLayers/src/SeedingLayerSetsBuilder.cc:51:    if (name.find("pos") != string::npos) {
@@ -276,9 +282,13 @@ Please check /RecoTracker/TkSeedGenerator/src/ClusterChecker.cc ! 0 0 1 1 ../cfi
 .//RecoTracker/TkSeedingLayers/src/SeedingLayerSetsBuilder.cc:402:        if (tTopo->pxfSide(rh.det()->geographicalId()) == 1)
 .//RecoTracker/TkSeedingLayers/src/SeedingLayerSetsBuilder.cc:408:      if (layer.subdet == subdet && layer.side == side && layer.idLayer == idLayer) {
 --- not found in filldesc cc
-###FinalCheck fillDesc 0 redundent 0  cfipython 0 redeudent 0
+###FinalCheck fillDesc 1 redundent 0  cfipython 0 redeudent 0
+>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+Please check /RecoTracker/TkSeedingLayers/src/SeedingLayerSetsBuilder.cc ! 1 0 0 0 
+>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
 ***********************************************************************
 #targetCC: /RecoTracker/TkSeedingLayers/src/SeedingLayerSetsBuilder.cc     #function: layerConfig
+#fillDescription: 247:void SeedingLayerSetsBuilder::fillDescriptions(edm::ParameterSetDescription& desc) {
 108:  if (cfgLayer.exists("HitProducer")) {
 113:  bool skipClusters = cfgLayer.exists("skipClusters");
 128:    if (cfgLayer.exists("matchedRecHits")) {
@@ -290,44 +300,44 @@ Please check /RecoTracker/TkSeedGenerator/src/ClusterChecker.cc ! 0 0 1 1 ../cfi
 147:    double minAbsZ = cfgLayer.exists("MinAbsZ") ? cfgLayer.getParameter<double>("MinAbsZ") : 0.;
 152:      bool useProjection = cfgLayer.exists("useProjection") ? cfgLayer.getParameter<bool>("useProjection") : false;
 270:    if (cfg.exists(name))
-###pramCC: HitProducer  inCC: 107  inFillDesc: 0 
+###pramCC: HitProducer  inCC: 107  inFillDesc: 247 
 107:  usePixelHitProducer = false;
 109:    pixelHitProducer = cfgLayer.getParameter<string>("HitProducer");
 110:    usePixelHitProducer = true;
 125:    extractor = std::make_unique<HitExtractorPIX>(side, idLayer, pixelHitProducer, iC);
 --- not found in filldesc cc
-###pramCC: skipClusters  inCC: 114  inFillDesc: 0 
+###pramCC: skipClusters  inCC: 114  inFillDesc: 247 
 114:  if (skipClusters) {
 151:    if (skipClusters) {
 161:  if (extractor && skipClusters) {
 162:    extractor->useSkipClusters(cfgLayer.getParameter<edm::InputTag>("skipClusters"), iC);
 --- not found in filldesc cc
-###pramCC: matchedRecHits  inCC: 129  inFillDesc: 0 
+###pramCC: matchedRecHits  inCC: 129  inFillDesc: 247 
 129:      extr->useMatchedHits(cfgLayer.getParameter<edm::InputTag>("matchedRecHits"), iC);
 --- not found in filldesc cc
-###pramCC: rphiRecHits  inCC: 132  inFillDesc: 0 
+###pramCC: rphiRecHits  inCC: 132  inFillDesc: 247 
 132:      extr->useRPhiHits(cfgLayer.getParameter<edm::InputTag>("rphiRecHits"), iC);
 --- not found in filldesc cc
-###pramCC: stereoRecHits  inCC: 135  inFillDesc: 0 
+###pramCC: stereoRecHits  inCC: 135  inFillDesc: 247 
 135:      extr->useStereoHits(cfgLayer.getParameter<edm::InputTag>("stereoRecHits"), iC);
 --- not found in filldesc cc
-###pramCC: vectorRecHits  inCC: 138  inFillDesc: 0 
+###pramCC: vectorRecHits  inCC: 138  inFillDesc: 247 
 138:      extr->useVectorHits(cfgLayer.getParameter<edm::InputTag>("vectorRecHits"), iC);
 --- not found in filldesc cc
-###pramCC: useRingSlector  inCC:   inFillDesc: 0 
+###pramCC: useRingSlector  inCC:   inFillDesc: 247 
 
 --- not found in filldesc cc
-###pramCC: useSimpleRphiHitsCleaner  inCC: 143  inFillDesc: 0 
+###pramCC: useSimpleRphiHitsCleaner  inCC: 143  inFillDesc: 247 
 143:    bool useSimpleRphiHitsCleaner =
 145:    extr->useSimpleRphiHitsCleaner(useSimpleRphiHitsCleaner);
 --- not found in filldesc cc
-###pramCC: MinAbsZ  inCC: 149  inFillDesc: 0 
+###pramCC: MinAbsZ  inCC: 149  inFillDesc: 247 
 149:      extr->setMinAbsZ(minAbsZ);
 --- not found in filldesc cc
-###pramCC: useProjection  inCC: 153  inFillDesc: 0 
+###pramCC: useProjection  inCC: 153  inFillDesc: 247 
 153:      if (useProjection) {
 --- not found in filldesc cc
-###pramCC: if (cfg.exists(name))  inCC: .//RecoTracker/TkSeedingLayers/src/SeedingLayerSetsBuilder.cc  inFillDesc: 0 
+###pramCC: if (cfg.exists(name))  inCC: .//RecoTracker/TkSeedingLayers/src/SeedingLayerSetsBuilder.cc  inFillDesc: 247 
 .//RecoTracker/TkSeedingLayers/src/SeedingLayerSetsBuilder.cc:40:  if ((index = name.find("BPix")) != string::npos) {
 .//RecoTracker/TkSeedingLayers/src/SeedingLayerSetsBuilder.cc:48:  else if ((index = name.find("FPix")) != string::npos) {
 .//RecoTracker/TkSeedingLayers/src/SeedingLayerSetsBuilder.cc:51:    if (name.find("pos") != string::npos) {
@@ -365,7 +375,10 @@ Please check /RecoTracker/TkSeedGenerator/src/ClusterChecker.cc ! 0 0 1 1 ../cfi
 .//RecoTracker/TkSeedingLayers/src/SeedingLayerSetsBuilder.cc:402:        if (tTopo->pxfSide(rh.det()->geographicalId()) == 1)
 .//RecoTracker/TkSeedingLayers/src/SeedingLayerSetsBuilder.cc:408:      if (layer.subdet == subdet && layer.side == side && layer.idLayer == idLayer) {
 --- not found in filldesc cc
-###FinalCheck fillDesc 0 redundent 0  cfipython 0 redeudent 0
+###FinalCheck fillDesc 1 redundent 0  cfipython 0 redeudent 0
+>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+Please check /RecoTracker/TkSeedingLayers/src/SeedingLayerSetsBuilder.cc ! 1 0 0 0 
+>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
 ***********************************************************************
 #targetCC: /RecoTracker/TkTrackingRegions/interface/GlobalTrackingRegionProducerFromBeamSpot.h     #function: GlobalTrackingRegionProducerFromBeamSpot
 26:    if (!regionPSet.existsAs<double>("nSigmaZ") && !regionPSet.existsAs<double>("originHalfLength")) {

@@ -1,0 +1,5 @@
+./mapping.sh RecoLocalCalo     >   recolocalcalo.log &  
+./mapping.sh RecoLocalMuon     >   recolocalmuon.log &    
+./mapping.sh RecoLocalTracker  >   recolocaltracker.log &    
+./mapping.sh RecoMuon          >   recomuon.log &    
+./mapping.sh RecoTracker       >   recotracker.log &  

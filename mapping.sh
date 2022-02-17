@@ -25,7 +25,7 @@ do
   FILLDESC_CHECK1=0
   FILLDESC_CHECK2=0
   FILLDESC_Num=0
-  FILLDESC=`grep -r -n "::fillDescriptions(edm::ConfigurationDescription" ./$SOURCE` # check fillDescription used in this source file
+  FILLDESC=`grep -r -n "::fillDescriptions(edm::" ./$SOURCE` # check fillDescription used in this source file
   #echo "filldescription = $FILLDESC"
 
   if [ "$FILLDESC" != ""  ];then
